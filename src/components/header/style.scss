@@ -1,0 +1,72 @@
+@import 'custom.scss';
+
+.header-container {
+    //background-color: $light;
+    // background: rgb(255,127,93);
+    // background: linear-gradient(180deg, rgba(255,127,93,0.9962359943977591) 28%, rgba(255,255,255,0) 100%);
+    width: 100%;
+
+    &.scrolled {
+        display: block;
+        position: fixed;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    
+    &.unscrolled {
+        display: none;
+    }
+    
+    .logoimg {
+        height: 80px;
+        width: auto;
+    }
+    
+    .header-logo-wrapper {
+        width: auto;
+        height: 80px;
+        position: relative;
+    }
+      
+    .header-logo-base, .header-logo-hover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: opacity 0.5s ease;
+    }
+      
+      
+    .header-logo-hover {
+        opacity: 0;
+    }
+      
+    .header-logo-wrapper:hover .header-logo-hover {
+        opacity: 1;
+    }
+    
+    .header-logo-wrapper:hover .header-logo-base {
+        opacity: 0;
+    }
+}
+
+.nav-item {
+    color: $secondary;
+    transition: all 0.3s ease;
+    background-color: $light;
+    border-radius: 12px;
+    text-align: center;
+
+    // &:hover {
+    //     color: $primary;
+    // }
+
+    &.active-nav {
+        color: $light;
+        background-color: $primary;
+    }
+}
+

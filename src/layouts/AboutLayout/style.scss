@@ -1,0 +1,42 @@
+@import 'custom.scss';
+
+.about-layout {
+    min-height: 100vh;
+    max-width: 100vw;
+    background-image: url('@assets/svg/animated-bg.svg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    .audruey-img {
+        height: 300px;
+        width: auto;
+    }
+
+    .timeline-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .about-me-card {
+        background-color: white;
+        border: 3px solid $primary;
+        border-radius: 12px;
+    }
+
+}
+
+.custom-icon {
+    color: $secondary;
+    transition: all 0.3s ease; // Smooth transition
+
+    &:hover {
+        color: $primary;
+        transform: scale(1.5); // Grow effect on hover
+    }
+}
+

@@ -1,0 +1,13 @@
+@import 'custom.scss';
+
+.main-container {
+    height: 100vh;
+
+    .section-snap {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        &.full-height {
+            min-height: 100vh;
+        }
+    }
+}

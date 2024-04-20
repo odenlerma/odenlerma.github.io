@@ -1,0 +1,39 @@
+$primary: #FC5130;
+$secondary: #4C66FF;
+$success: #53CB48;
+$info: #1A79FF;
+$warning: #FF9635;
+$danger: #F35454;
+$light: #FFF5E3;
+$dark: #303036;
+$border-color: #a9aab0;
+
+$display-font-sizes: (
+  1: 2.986rem,
+  2: 2.488rem,
+  3: 2.074rem,
+  4: 1.728rem,
+  5: 1.44rem,
+  6: 1.2rem
+);
+
+
+$display-font-weight: 600;
+
+
+@import 'bootstrap/scss/bootstrap';
+
+$utilities: map-merge(
+        $utilities,
+        (
+            "font-size": map-merge(
+                    map-get($utilities, "font-size"),
+                    (
+                        responsive: true,
+                        values: $font-sizes
+                    )
+            )
+        )
+);
+
+@import "bootstrap/scss/utilities/api";

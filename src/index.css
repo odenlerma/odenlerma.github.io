@@ -1,0 +1,23 @@
+:root {
+  font-family: "Inconsolata", monospace;
+  line-height: 1.5;
+  font-weight: 300;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.inconsolata-normal {
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.inconsolata-bold {
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+}

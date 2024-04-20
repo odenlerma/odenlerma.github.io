@@ -1,0 +1,23 @@
+@import 'custom.scss';
+
+.intro-layout {
+    min-height: 100vh;
+    max-width: 100vw;
+    background-image: url('@assets/svg/animated-header.svg');
+    background-size: contain; /* Adjust as needed */
+    background-repeat: no-repeat; /* Prevent repetition */
+
+    .intro-logo {
+        height: auto;
+        width: 100%;
+        opacity: 0; // Start from invisible
+        animation: fadeIn 0.5s ease-out 200ms forwards;
+    }
+
+    .fade-in-top {
+        &:nth-child(2) { animation-delay: 700ms; }
+        &:nth-child(3) { animation-delay: 900ms; }
+        &:nth-child(4) { animation-delay: 1100ms; }
+        &:nth-child(5) { animation-delay: 1500ms; }
+    }
+}
