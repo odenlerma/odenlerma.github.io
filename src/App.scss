@@ -10,37 +10,21 @@
   min-height: 100vh;
   font-family: "Inconsolata", monospace;
   color: $dark;
-  background-color: $light;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  // background-color: $light;
+  background-image: url('@assets/svg/bg.svg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }
-
-/* hide scrollbar for chrome, safari and opera */
-#root::-webkit-scrollbar {
-  display: none;
-}
-
-.custom-container {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-/* hide scrollbar for chrome, safari and opera */
-.custom-container::-webkit-scrollbar {
-  display: none;
-}
-
 
 html {
-  background-color: $light;
-  scroll-behavior: smooth;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-}
-
-header, footer {
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: auto;
+  // background-color: $light;
+  // scroll-behavior: smooth;
+  // overflow-y: scroll;
+  // scroll-snap-type: y mandatory;
+  
 }
 
 h6 {
@@ -56,9 +40,9 @@ body, p, span {
 }
 
 .container {
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: auto;
+  // flex-grow: 1;
+  // flex-shrink: 0;
+  // flex-basis: auto;
   min-width: 90%;
 }
 
@@ -170,4 +154,12 @@ body, p, span {
   height: 150px;
   width: auto;
 }
+
+.custom-divider {
+  height: 3px;
+  width: 90vw;
+  background-color: $primary;
+  border-radius: 5px;
+}
+
 

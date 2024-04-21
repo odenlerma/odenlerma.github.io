@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import './style.scss';
 import logo from '@assets/images/icon.png';
 import audruey from '@assets/images/audruey.png';
+import resume from '@assets/audruey-resume-2024.pdf';
 
 // eslint-disable-next-line react/prop-types
 const showlg = 'd-none d-md-block';
@@ -16,7 +17,7 @@ const showmd = 'd-block d-lg-none d-md-block d-sm-block d-xsm-block';
 
 // eslint-disable-next-line react/prop-types
 export const CUSTOM_HEADER = ({ refs = [] }) => {
-    const [scrolled, setScrolled] = useState(false);
+    // const [scrolled, setScrolled] = useState(false);
 
     // useEffect(() => {
     //     const observerOptions = {
@@ -98,8 +99,9 @@ export const CUSTOM_HEADER = ({ refs = [] }) => {
                                 active={refs[2]}
                             />
                             <NAVIGATION_COMPONENT
-                                link="#resume"
+                                link={resume}
                                 label="Resume"
+                                target='_blank'
                                 //active={refs[2]}
                             />
                         </Row>
@@ -115,10 +117,10 @@ export const CUSTOM_HEADER = ({ refs = [] }) => {
 
 
 // eslint-disable-next-line react/prop-types
-function NAVIGATION_COMPONENT({link, label = '', active}) {
+function NAVIGATION_COMPONENT({link, label = '', active, target = '_self'}) {
     
     return(
-        <a href={link} className={`nav-item ${active === true ? 'active-nav' : ''} ms-4 fs-2 py-1`}>
+        <a href={link} target={target} className={`nav-item ${active === true ? 'active-nav' : ''} ms-4 fs-2 py-1`}>
             {label}
         </a>
     )

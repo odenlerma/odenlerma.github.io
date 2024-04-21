@@ -6,11 +6,19 @@ import './style.scss';
 import audruey from '@assets/svg/audy.svg'
 import aboutheader from '@assets/images/aboutheader.png';
 import desktop from '@assets/images/desktop.png';
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
+import resume from '@assets/audruey-resume-2024.pdf';
+
+const showmd = 'd-block d-lg-none d-md-block d-sm-block d-xsm-block';
 
 function AboutLayout () {
+
+    const openResume = () => {
+        window.open(resume,"_blank");
+    }
+
     return(
-        <Container className="about-layout d-flex justify-content-center align-items-center flex-column" fluid>
+        <Container className="about-layout d-flex justify-content-center align-items-center flex-column mt-5" fluid>
             <Row lg={10} className="mb-2">
                 <Image src={aboutheader} className="img-fluid" />
             </Row>
@@ -39,7 +47,11 @@ function AboutLayout () {
                                     icon="messenger"
                                 />
                             </div>
+                            
                         </div>
+                        <Button onClick={openResume} variant="secondary" className={`${showmd} w-100 mt-3`}>
+                            <span className="text-light mb-0">View Resume</span>
+                        </Button>
                     </Col>
                     <Col lg={6} className="about-me-card p-4">
                         <h4>Hello there! I am <b className="text-primary">Audruey Gana</b>.</h4>

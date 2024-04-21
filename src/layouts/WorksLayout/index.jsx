@@ -131,16 +131,15 @@ function TIMELINE_COMPONENT ({ list = [] }) {
 
 
 function WorksLayout () {
-    // const [activeIndex, setActiveIndex] = useState(5);
+    // const [activeIndex, setActiveIndex] = useState(0);
 
     // useEffect(() => {
     //     const onScroll = () => {
     //         // Calculate the active index based on scroll position
     //         // This is a placeholder: you need a real calculation here
     //         const newIndex = Math.floor(window.scrollY / 300);
-    //         console.log(newIndex)
+    //         console.log(newIndex, activeIndex)
     //         if (newIndex !== activeIndex) {
-    //             console.log(newIndex, 'change here')
     //             setActiveIndex(newIndex);
     //         }
     //     };
@@ -156,10 +155,10 @@ function WorksLayout () {
             </Row>
             <Col lg={8} >
                 <Chrono
-                    //scrollable
+                    scrollable
                     lineWidth={2}
                     mediaSettings={{ align: 'right', fit: 'contain' }}
-                    // activeItemIndex={activeIndex - 5}
+                    //activeItemIndex={activeIndex}
                     cardHeight={250}
                     fontSizes={{ 
                         title: '2.074rem',
@@ -186,9 +185,7 @@ function WorksLayout () {
                         changeLayout: '',
                         jumpTo: 'See Works',
                     }}
-                    slideShow
-                    slideItemDuration={1500}
-                    // focusActiveItemOnLoad
+                    //focusActiveItemOnLoad
                     disableToolbar
                 />
             </Col>

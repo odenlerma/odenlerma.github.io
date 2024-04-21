@@ -26,6 +26,7 @@ function HomePage () {
             <section ref={introRef} className="section-snap full-height" id="intro"><IntroLayout /></section>
             <section ref={worksRef} className="section-snap" id="works"><WorksLayout /></section>
             <section ref={aboutRef} className="section-snap" id="about"><AboutLayout /></section>
+            <COMPONENTS.CUSTOM_FOOTER />
         </div>
     )
 }
