@@ -121,7 +121,7 @@ function NAVIGATION_COMPONENT({link, label = '', active, target = '_self'}) {
     
     return(
         <a href={link} target={target} className={`nav-item ${active === true ? 'active-nav' : ''} ms-4 fs-2 py-1`}>
-            {label}
+            <h3>{label}</h3>
         </a>
     )
 }
