@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 import './style.scss';
 import logo from '@assets/images/icon.png';
 import audruey from '@assets/images/audruey.png';
-import resume from '@assets/audruey-resume-2024.pdf';
+import resume from '@assets/Audruey.pdf';
 
 // eslint-disable-next-line react/prop-types
 const showlg = 'd-none d-md-block';

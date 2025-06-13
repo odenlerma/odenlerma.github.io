@@ -7,7 +7,7 @@ import audruey from '@assets/svg/audy.svg'
 import aboutheader from '@assets/images/aboutheader.png';
 import desktop from '@assets/images/desktop.png';
 import { Button, Container } from 'react-bootstrap';
-import resume from '@assets/audruey-resume-2024.pdf';
+import resume from '@assets/Audruey.pdf';
 
 const showmd = 'd-block d-lg-none d-md-block d-sm-block d-xsm-block';
 
@@ -26,7 +26,7 @@ function AboutLayout () {
                 <Row lg={2} className="d-flex align-items-center justify-content-center">
                     <Col lg={3} className="mb-5 d-flex align-items-center flex-column">
                         <Image src={audruey} className="audruey-img mb-3" />
-                        <TECHSTACK_COMPONENT list={['React Native', 'Javascript', 'Android', 'iOS', 'React.js', 'Vite', 'Git', 'Figma', 'Redux', 'REST API', 'HTML', 'CSS', 'SASS']} />
+                        <TECHSTACK_COMPONENT list={['React Native', 'Javascript', 'Android', 'iOS', 'React.js', 'Vite', 'Git', 'Figma', 'Redux', 'REST API', 'HTML', 'CSS', 'SASS', 'Tailwind', 'AI Automation', 'AI Integration']} />
                         <div className="about-me-card p-4 flex-row mt-4">
                             <span className="mb-0 text-center">Connect with me: </span>
                             <div className="d-inline-flex flex-row">
@@ -55,15 +55,14 @@ function AboutLayout () {
                     </Col>
                     <Col lg={6} className="about-me-card p-4">
                         <h4>Hello there! I am <b className="text-primary">Audruey Gana</b>.</h4>
-                        <p>I am based in Cavite, Philippines, where I live with my family. I hold a Bachelor of Science in Information Technology from Cavite State University and have been passionately coding as a programmer ever since, landing my dream job right after graduation.
+                        <p>I'm from Cavite, Philippines, where I live with my family. I earned my Bachelor’s degree in Information Technology from Cavite State University. Right after graduating, I got my dream job and have been coding ever since.</p>
+                        <p>I’ve spent over seven years building mobile apps. But I didn’t stop there—I’ve also been exploring web development, AI, and UX design. I’m driven by curiosity and a love for learning. Programming can be stressful, but there’s nothing like the feeling of creating something that works.
                         </p>
-                        <p>For over six years, I have been immersed in the world of mobile app development, and I have not stopped there. I am also exploring the realms of web development, artificial intelligence, and UX design. My career is driven by a deep-seated curiosity and a zest for adventure; I am always on the hunt for the next skill to master. Programming holds a special place in my heart—though it brings its fair share of stress, the joy and satisfaction of bringing new creations to life are incomparable.
+                        <p>In every project, I focus on user experience. I believe a good digital product keeps users coming back. With how much influence social media has now, it’s important to create positive, useful, and engaging tools that leave a good impression.
                         </p>
-                        <p>In every project, whether developing an app or a website, my priority is the user experience. I believe that the success of a digital product is measured by its ability to retain users and compel them to return. In this era, where social media significantly impacts our society, it is crucial to engage users positively to foster excellent experiences and avoid negative feedback.
+                        <p>I see learning as a lifelong process. Tech keeps changing, and I enjoy keeping up with it. There’s always something new to explore or figure out, and I like understanding how things work under the hood.
                         </p>
-                        <p>I believe that learning is a lifelong journey, filled with endless opportunities to discover. The world of technology is vast and constantly evolving, and I am always eager to dive in and see what is new. Every day offers a chance to uncover something intriguing, and I am all about digging deep and understanding the mechanics behind each innovation.
-                        </p>
-                        <p>Curious to know more about my journey or discuss potential collaborations? Do not hesitate to reach out. Let us connect and make something amazing together!
+                        <p>If you want to know more about what I do or think we can work on something together, feel free to reach out. Let’s build something great.
                         </p>
                     </Col>
                 </Row>

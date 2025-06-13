@@ -8,6 +8,8 @@ import './style.scss';
 import { Container } from 'react-bootstrap';
 import momentapp from '@assets/project-ss/moment-app.png';
 import etaren from '@assets/project-ss/etaren.png';
+import codereviewer from '@assets/project-ss/codereviewer.png';
+import techassess from '@assets/project-ss/techassess.png';
 import inventoryapp from '@assets/project-ss/inventory-app-1.jpg';
 import workimg from '@assets/images/worksheader.png';
 
@@ -110,6 +112,46 @@ const work_list = [
             name: "Etaren",
             source: {
               url: etaren
+            },
+            type: "IMAGE"
+        }
+    },
+    {
+        title: '2024',
+        cardTitle: 'TODO App',
+        cardSubtitle: "Design and create a todo app using react native framework",
+        timelineContent: <TIMELINE_COMPONENT list={['React Native', 'MMKV', 'redux-saga', 'redux-toolkit', 'javascript']} />,
+        url: 'https://github.com/odenlerma/todo-app',
+    },
+    {
+        title: '2024-Current',
+        cardTitle: 'LegalMatch App for Attorneys',
+        cardSubtitle: "Handles Maintenance of a old infrastructure of react native app, depreciated module fixing, adding features",
+        timelineContent: <TIMELINE_COMPONENT list={['React Native', 'Styled-components', 'Redux-Saga', 'Ramda', 'Redux', 'REST API']} />,
+        url: 'https://play.google.com/store/apps/details?id=com.legalmatchattorney&hl=en'
+    },
+    {
+        title: '2025',
+        cardTitle: 'Automated Code Reviewer for Developers of LegalMatch',
+        cardSubtitle: "This was our entry for our company AI Agent Hackathon that won honorable mention for our Engineering Department that aims to automate code review of pull requests for faster transistion of tickets",
+        timelineContent: <TIMELINE_COMPONENT list={['n8n', 'OpenAI API', 'Jira API', 'Bitbucket API', 'AI Agent']} />,
+        media: {
+            name: "Automated Code Reviewer",
+            source: {
+              url: codereviewer
+            },
+            type: "IMAGE"
+        }
+    },
+    {
+        title: '2025',
+        cardTitle: 'Automated Technical Assessment for Developers',
+        cardSubtitle: "This aims to automate creation of confluence document for both developer and QA assessment based on Jira Ticket information",
+        timelineContent: <TIMELINE_COMPONENT list={['n8n', 'OpenAI API', 'Jira API', 'Confluence API']} />,
+        media: {
+            name: "Automated Technical Assessment for Developers",
+            source: {
+              url: techassess
             },
             type: "IMAGE"
         }
