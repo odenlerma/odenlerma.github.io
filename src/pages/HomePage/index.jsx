@@ -1,8 +1,3 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
 import { useInView } from 'react-intersection-observer';
 
 import './style.scss';
@@ -12,23 +7,38 @@ import WorksLayout from '@layouts/WorksLayout';
 import AboutLayout from '@layouts/AboutLayout';
 
 const observerOptions = {
-    threshold: 0,
+  threshold: 0.5,
 };
 
-function HomePage () {
-    const { ref: introRef, inView: isVisibleIntro} = useInView(observerOptions);
-    const { ref: worksRef, inView: isVisibleWorks} = useInView(observerOptions);
-    const { ref: aboutRef, inView: isVisibleAbout} = useInView(observerOptions);
+function HomePage() {
+  const { ref: introRef, inView: isVisibleIntro } = useInView(observerOptions);
+  const { ref: worksRef, inView: isVisibleWorks } = useInView(observerOptions);
+  const { ref: aboutRef, inView: isVisibleAbout } = useInView(observerOptions);
 
-    return(
-        <div className="main-container">
-            {!isVisibleIntro ? <COMPONENTS.CUSTOM_HEADER refs={[isVisibleIntro, isVisibleWorks, isVisibleAbout]} /> : <div /> }
-            <section ref={introRef} className="section-snap full-height" id="intro"><IntroLayout /></section>
-            <section ref={worksRef} className="section-snap" id="works"><WorksLayout /></section>
-            <section ref={aboutRef} className="section-snap" id="about"><AboutLayout /></section>
-            <COMPONENTS.CUSTOM_FOOTER />
-        </div>
-    )
+  // Determine active section for bottom nav
+  const getActiveSection = () => {
+    if (isVisibleAbout) return 'about';
+    if (isVisibleWorks) return 'works';
+    return 'intro';
+  };
+
+  return (
+    <div className="main-container">
+      <section ref={introRef} className="section-snap full-height" id="intro">
+        <IntroLayout />
+      </section>
+
+      <section ref={worksRef} className="section-snap" id="works">
+        <WorksLayout />
+      </section>
+
+      <section ref={aboutRef} className="section-snap" id="about">
+        <AboutLayout />
+      </section>
+
+      <COMPONENTS.CUSTOM_FOOTER />
+    </div>
+  );
 }
 
 export default HomePage;

@@ -16,9 +16,9 @@ export default defineConfig({
       '@components': path.resolve(__dirname, 'src/components'),
       '@layouts': path.resolve(__dirname, 'src/layouts'),
       '@pages': path.resolve(__dirname, 'src/pages'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
       'custom.scss': path.resolve(__dirname, 'src/custom.scss'),
       'custom-context': path.resolve(__dirname, 'src/context.jsx'),
-      // Add more aliases as needed
     },
   },
 })

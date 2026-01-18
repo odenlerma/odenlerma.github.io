@@ -1,39 +1,175 @@
-$primary: #FC5130;
-$secondary: #4C66FF;
+// ============================================
+// Portfolio Color Palette
+// ============================================
+$primary: #FC5130;        // Coral
+$secondary: #4C66FF;      // Blue
 $success: #53CB48;
 $info: #1A79FF;
 $warning: #FF9635;
 $danger: #F35454;
-$light: #FFF5E3;
-$dark: #303036;
+$light: #FFF5E3;          // Cream
+$dark: #303036;           // Dark
 $border-color: #a9aab0;
 
+// ============================================
+// Typography - Font Families
+// ============================================
+$font-display: "Syne", sans-serif;      // Bold headlines
+$font-body: "DM Sans", sans-serif;      // Clean body text
+$font-mono: "JetBrains Mono", monospace; // Code/tech tags
+
+// ============================================
+// Fluid Typography Scale using clamp()
+// ============================================
 $display-font-sizes: (
-  1: 2.986rem,
-  2: 2.488rem,
-  3: 2.074rem,
-  4: 1.728rem,
-  5: 1.44rem,
-  6: 1.2rem
+  1: clamp(3rem, 8vw, 6rem),      // Hero name
+  2: clamp(2.5rem, 6vw, 4rem),    // Section headers
+  3: clamp(2rem, 4vw, 3rem),      // Large headings
+  4: clamp(1.5rem, 3vw, 2rem),    // Medium headings
+  5: clamp(1.25rem, 2vw, 1.5rem), // Small headings
+  6: clamp(1rem, 1.5vw, 1.25rem)  // Body large
 );
 
+$display-font-weight: 700;
 
-$display-font-weight: 600;
+// ============================================
+// Spacing Scale
+// ============================================
+$space-xs: 0.5rem;
+$space-sm: 1rem;
+$space-md: 1.5rem;
+$space-lg: 2rem;
+$space-xl: 3rem;
+$space-2xl: 4rem;
+$space-3xl: 6rem;
 
+// ============================================
+// Animation Variables
+// ============================================
+$transition-fast: 150ms ease;
+$transition-base: 300ms ease;
+$transition-slow: 500ms ease;
+$transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
 
+// ============================================
+// Border Radius
+// ============================================
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$radius-xl: 32px;
+$radius-full: 9999px;
+
+// ============================================
+// Glassmorphism Variables
+// ============================================
+$glass-blur: 20px;
+$glass-bg: rgba(255, 245, 227, 0.8);
+$glass-border: rgba(255, 255, 255, 0.3);
+
+// ============================================
+// Bootstrap Overrides
+// ============================================
 @import 'bootstrap/scss/bootstrap';
 
 $utilities: map-merge(
-        $utilities,
-        (
-            "font-size": map-merge(
-                    map-get($utilities, "font-size"),
-                    (
-                        responsive: true,
-                        values: $font-sizes
-                    )
-            )
-        )
+  $utilities,
+  (
+    "font-size": map-merge(
+      map-get($utilities, "font-size"),
+      (
+        responsive: true,
+        values: $font-sizes
+      )
+    )
+  )
 );
 
 @import "bootstrap/scss/utilities/api";
+
+// ============================================
+// Custom SCSS Mixins
+// ============================================
+
+// Glassmorphism effect
+@mixin glassmorphism($blur: $glass-blur, $bg: $glass-bg) {
+  background: $bg;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid $glass-border;
+}
+
+// Gradient text
+@mixin gradient-text($from: $primary, $to: $secondary) {
+  background: linear-gradient(135deg, $from, $to);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Card with gradient border
+@mixin gradient-border($width: 2px) {
+  position: relative;
+  background: $light;
+  border-radius: $radius-lg;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: $width;
+    border-radius: inherit;
+    background: linear-gradient(135deg, $primary, $secondary);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+// Hover lift effect
+@mixin hover-lift($y: -8px, $shadow: true) {
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY($y);
+    @if $shadow {
+      box-shadow: 0 20px 40px rgba($dark, 0.15);
+    }
+  }
+}
+
+// Typography with tight letter spacing
+@mixin display-text {
+  font-family: $font-display;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+// Section padding
+@mixin section-padding {
+  padding: $space-3xl $space-lg;
+
+  @media (max-width: 768px) {
+    padding: $space-2xl $space-md;
+  }
+}
+
+// Noise texture overlay
+@mixin noise-overlay($opacity: 0.03) {
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: $opacity;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+// Responsive font size
+@mixin fluid-type($min-size, $max-size) {
+  font-size: clamp(#{$min-size}, calc(#{$min-size} + (#{$max-size} - #{$min-size}) * ((100vw - 320px) / (1200 - 320))), #{$max-size});
+}

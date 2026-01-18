@@ -1,24 +1,379 @@
 @import 'custom.scss';
 
 .intro-layout {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  // Floating decorative elements
+  .floating-element {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    will-change: transform;
+
+    &.balloon {
+      width: clamp(160px, 8vw, 120px);
+      top: 10%;
+      right: 5%;
+
+      @media (max-width: 768px) {
+        width: 80px;
+        top: 5%;
+        right: 2%;
+      }
+    }
+
+    &.flower {
+      width: clamp(50px, 6vw, 80px);
+      bottom: 20%;
+      left: 5%;
+
+      @media (max-width: 768px) {
+        width: 40px;
+        bottom: 15%;
+        left: 2%;
+      }
+    }
+
+    &.avatar {
+      width: clamp(120px, 5vw, 60px);
+      top: 5%;
+      left: 25%;
+      animation: float 4s ease-in-out infinite;
+
+      @media (max-width: 768px) {
+        width: 60px;
+      }
+    }
+
+    &.love {
+      width: clamp(35px, 4vw, 50px);
+      bottom: 30%;
+      right: 10%;
+      animation: float 5s ease-in-out infinite;
+      animation-delay: 1s;
+
+      @media (max-width: 768px) {
+        width: 30px;
+        bottom: 10%;
+        right: 5%;
+      }
+    }
+  }
+
+  .intro-container {
+    position: relative;
+    z-index: 2;
+    padding: $space-xl $space-lg;
     min-height: 100vh;
-    max-width: 100vw;
-    background-image: url('@assets/svg/animated-header.svg');
-    background-size: contain; /* Adjust as needed */
-    background-repeat: no-repeat; /* Prevent repetition */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-    .intro-logo {
-        height: auto;
+    @media (max-width: 768px) {
+      padding: $space-lg $space-sm;
+    }
+  }
+
+  .intro-row {
+    min-height: 80vh;
+  }
+
+  // Left side - Text content
+  .intro-content {
+    padding: $space-lg;
+
+    @media (max-width: 991px) {
+      text-align: center;
+      order: 2;
+      padding: $space-md $space-xs;
+    }
+  }
+
+  .intro-text-wrapper {
+    max-width: 600px;
+
+    @media (max-width: 991px) {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  .greeting {
+    margin-bottom: $space-sm;
+  }
+
+  .greeting-text {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    color: $secondary;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .name-wrapper {
+    margin-bottom: $space-lg;
+    margin-left: $space-lg;
+    margin-top: $space-sm;
+
+    @media (max-width: 991px) {
+      display: flex;
+      justify-content: center;
+      margin-left: 0;
+    }
+  }
+
+  .hero-icon {
+    width: clamp(280px, 25vw, 380px);
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 20px rgba($dark, 0.1));
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.20) rotate(-10deg);
+    }
+
+    @media (max-width: 768px) {
+      width: clamp(150px, 40vw, 200px);
+    }
+  }
+
+  // Role items
+  .roles-container {
+    margin-bottom: $space-lg;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+
+    @media (max-width: 991px) {
+      align-items: center;
+    }
+  }
+
+  .role-item {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+
+    @media (max-width: 991px) {
+      justify-content: center;
+    }
+  }
+
+  .role-number {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $primary;
+    font-weight: 600;
+  }
+
+  .role-text {
+    font-family: $font-body;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    color: $dark;
+    font-weight: 500;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, $primary, $secondary);
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  .intro-brief {
+    margin-bottom: $space-lg;
+
+    p {
+      font-size: clamp(1rem, 1.2vw, 1.125rem);
+      color: rgba($dark, 0.7);
+      max-width: 450px;
+      margin-bottom: 0;
+
+      @media (max-width: 991px) {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .intro-cta {
+    display: flex;
+    gap: $space-sm;
+
+    @media (max-width: 991px) {
+      justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: center;
+
+      .btn {
         width: 100%;
-        opacity: 0; // Start from invisible
-        animation: fadeIn 0.5s ease-out 200ms forwards;
+        max-width: 250px;
+      }
     }
 
-    .fade-in-top {
-        &:nth-child(2) { animation-delay: 700ms; }
-        &:nth-child(3) { animation-delay: 900ms; }
-        &:nth-child(4) { animation-delay: 1100ms; }
-        &:nth-child(5) { animation-delay: 1500ms; }
+    .btn {
+      font-family: $font-display;
+      font-weight: 600;
+      padding: 0.875rem 1.75rem;
+      border-radius: $radius-full;
+
+      &.btn-outline {
+        background: transparent;
+        border: 2px solid $dark;
+        color: $dark;
+
+        &:hover {
+          background: $dark;
+          color: $light;
+        }
+      }
     }
-      
+  }
+
+  // Right side - Profile
+  .intro-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 991px) {
+      order: 1;
+    }
+  }
+
+  .profile-wrapper {
+    position: relative;
+  }
+
+  .profile-image-container {
+    position: relative;
+    width: clamp(280px, 35vw, 420px);
+    height: clamp(280px, 35vw, 420px);
+
+    @media (max-width: 991px) {
+      width: clamp(120px, 50vw, 100px);
+      height: clamp(120px, 50vw, 100px);
+    }
+  }
+
+  .profile-circle-bg {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba($primary, 0.2), rgba($secondary, 0.2));
+    border: 3px solid $primary;
+  }
+
+  .profile-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: $space-sm;
+  }
+
+  .status-badge {
+    position: absolute;
+    bottom: 10%;
+    right: -10%;
+    background: white;
+    padding: $space-xs $space-md;
+    border-radius: $radius-full;
+    box-shadow: 0 8px 24px rgba($dark, 0.12);
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+
+    @media (max-width: 991px) {
+      right: 0;
+      bottom: 5%;
+    }
+  }
+
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    background: $success;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .status-text {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: $dark;
+    white-space: nowrap;
+  }
+
+  // Scroll indicator
+  .scroll-indicator {
+    position: absolute;
+    bottom: $space-xl;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-xs;
+    color: $secondary;
+
+    @media (max-width: 768px) {
+      bottom: $space-sm;
+    }
+  }
+
+  .scroll-text {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .scroll-line {
+    color: $secondary;
+  }
+
+  .bi-chevron-down {
+    font-size: 1.25rem;
+  }
+}
+
+// Keyframe for pulse animation
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba($success, 0.4);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 0 8px rgba($success, 0);
+  }
+}
+
+// Float animation
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(3deg);
+  }
 }

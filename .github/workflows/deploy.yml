@@ -1,47 +1,43 @@
-name: Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  workflow_dispatch: # Allow manual deployments
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
-    name: Build and Deploy to main
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
+          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
+      - run: npm run build
 
-      - name: Build project
-        run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
 
-      - name: Deploy built site to main
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Move to temp folder to preserve .git
-          mkdir temp-deploy
-          cp -r dist/* temp-deploy/
-          
-          # Clear working directory except .git
-          find . -not -path "./.git*" -not -name "." -exec rm -rf {} +
-          
-          # Move built files to root
-          cp -r temp-deploy/* ./
-          rm -rf temp-deploy
-          
-          # Commit and push
-          git add .
-          git commit -m "Deploy built site to main" || echo "Nothing to commit"
-          git push origin main
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

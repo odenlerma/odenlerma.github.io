@@ -1,127 +1,171 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
-import Button from 'react-bootstrap/Button';
-
 
 import './style.scss';
-import logo from '@assets/images/icon.png';
-import audruey from '@assets/images/audruey.png';
-import resume from '@assets/Audruey.pdf';
+import resume from '@assets/Audruey Gana - CV.pdf';
+import logoImg from '@assets/images/icon.png';
+import { useScrollProgress } from '@hooks/useScrollProgress';
 
-// eslint-disable-next-line react/prop-types
-const showlg = 'd-none d-md-block';
-const showmd = 'd-block d-lg-none d-md-block d-sm-block d-xsm-block';
+const navItems = [
+  { id: 1, label: 'Works', href: '#works', icon: 'bi-grid-3x3-gap-fill' },
+  { id: 2, label: 'About', href: '#about', icon: 'bi-person-heart' },
+  { id: 3, label: 'Resume', href: resume, external: true, icon: 'bi-file-earmark-arrow-down-fill' }
+];
 
 // eslint-disable-next-line react/prop-types
 export const CUSTOM_HEADER = ({ refs = [] }) => {
-    // const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { scrollProgress, isScrolled, scrollDirection } = useScrollProgress();
+  const [isVisible, setIsVisible] = useState(true);
 
-    // useEffect(() => {
-    //     const observerOptions = {
-    //       root: null,
-    //       rootMargin: '0px',
-    //       threshold: 1,
-    //     };
-    
-    //     const observer = new IntersectionObserver(entries => {
-    //       entries.forEach(entry => {
-    //           console.log(entry.target.id, 'id')
-    //           if(entry.isIntersecting){
-    //               if (entry.target.id === 'intro'){
-    //                 setActiveId('intro')
-    //               }else if (entry.target.id === 'works'){
-    //                 setActiveId('works')
-    //               } else if (entry.target.id === 'about'){
-    //                 setActiveId('about')
-    //               }
-    //             }
-    //         })
-    //     }, observerOptions)
-        
-    //     refs?.forEach(section => {
-    //         section.current && observer.observe(section.current)
-    //     })
-    //   }, [])
+  // Hide header on scroll down, show on scroll up
+  useEffect(() => {
+    if (scrollDirection === 'down' && isScrolled) {
+      setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+  }, [scrollDirection, isScrolled]);
 
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         const sections = document.querySelectorAll('section');
-    //         let currentSection = '';
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
-    //         sections.forEach(section => {
-    //             const sectionTop = section.getBoundingClientRect().top;
-    //             if (sectionTop <= 50) {
-    //                 currentSection = section.id;
-    //             }
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-    //             if(section.id == 'works' && currentSection != "Intro"){
-    //                 const sectionBottom = section.getBoundingClientRect().bottom;
-    //                 if (sectionBottom >= 1) {
-    //                     currentSection = section.id;
-    //                     setActiveId(currentSection);
-    //                     return;
-    //                 }
-    //             }
-    //         });
+  return (
+    <>
+      {/* Progress bar */}
+      <motion.div
+        className="scroll-progress-bar"
+        style={{ scaleX: scrollProgress }}
+      />
 
-    //         if(currentSection !== ''){
-    //             setActiveId(currentSection);
-    //         }
-    //     };
+      {/* Main header */}
+      <motion.header
+        className={`main-header ${isScrolled ? 'scrolled' : ''}`}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{
+          y: isVisible ? 0 : -100,
+          opacity: isVisible ? 1 : 0
+        }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+      >
+        <Container fluid className="header-inner">
+          {/* Logo/Name */}
+          <motion.a
+            href="#intro"
+            className="header-logo"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <img src={logoImg} alt="Audruey" className="logo-image" />
+          </motion.a>
 
-    //     window.addEventListener('scroll', handleScroll);
-    //     return () => window.removeEventListener('scroll', handleScroll);
-    // }, []);
+          {/* Desktop Navigation */}
+          <nav className="desktop-nav">
+            {navItems.map((item, index) => (
+              <motion.a
+                key={item.id}
+                href={item.href}
+                target={item.external ? '_blank' : '_self'}
+                rel={item.external ? 'noopener noreferrer' : undefined}
+                className={`nav-link ${refs[index + 1] ? 'active' : ''}`}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <i className={`nav-icon bi ${item.icon}`}></i>
+                <span className="nav-label">{item.label}</span>
+              </motion.a>
+            ))}
+          </nav>
 
-    return(
-        <>
-            <Container className={`header-container py-3 px-5 d-flex justify-content-between align-items-center scrolled fade-in-top ${showlg}`} fluid>
-                <Row lg={2} className="w-100 d-flex align-items-center justify-content-center">
-                    <Col>
-                        {/* <div className="header-logo-wrapper">
-                            <div className="header-logo-base"><Image src={logo} className="logoimg"/></div>
-                            <div className="header-logo-hover"><Image src={audruey} className="logoimg"/></div>
-                        </div> */}
-                    </Col>
-                    <div className={showlg}>
-                        <Row lg={6} md={6} sm={6} className={`d-flex align-items-center justify-content-end`}>
-                            <NAVIGATION_COMPONENT
-                                link="#works"
-                                label="Works"
-                                active={refs[1]}
-                            />
-                            <NAVIGATION_COMPONENT
-                                link="#about"
-                                label="About"
-                                active={refs[2]}
-                            />
-                            <NAVIGATION_COMPONENT
-                                link={resume}
-                                label="Resume"
-                                target='_blank'
-                                //active={refs[2]}
-                            />
-                        </Row>
-                    </div>
-                </Row>
-            </Container>
-            <div className={`${showmd}`}>
+          {/* Mobile Menu Button */}
+          <motion.button
+            className={`mobile-menu-btn ${isMobileMenuOpen ? 'open' : ''}`}
+            onClick={toggleMobileMenu}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Toggle menu"
+          >
+            <span className="menu-line"></span>
+            <span className="menu-line"></span>
+            <span className="menu-line"></span>
+          </motion.button>
+        </Container>
+      </motion.header>
 
-            </div>
-        </>
-    )
-}
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="mobile-menu-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.nav
+              className="mobile-nav"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            >
+              <div className="mobile-nav-header">
+                <span className="mobile-nav-title">Menu</span>
+                <motion.button
+                  className="close-btn"
+                  onClick={toggleMobileMenu}
+                  whileTap={{ scale: 0.9 }}
+                  aria-label="Close menu"
+                >
+                  <i className="bi bi-x-lg"></i>
+                </motion.button>
+              </div>
 
+              <div className="mobile-nav-links">
+                {navItems.map((item, index) => (
+                  <motion.a
+                    key={item.id}
+                    href={item.href}
+                    target={item.external ? '_blank' : '_self'}
+                    rel={item.external ? 'noopener noreferrer' : undefined}
+                    className="mobile-nav-link"
+                    onClick={() => !item.external && toggleMobileMenu()}
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <span className="mobile-nav-icon">
+                      <i className={`bi ${item.icon}`}></i>
+                    </span>
+                    <span className="mobile-nav-label">{item.label}</span>
+                    <i className="bi bi-arrow-right"></i>
+                  </motion.a>
+                ))}
+              </div>
 
-// eslint-disable-next-line react/prop-types
-function NAVIGATION_COMPONENT({link, label = '', active, target = '_self'}) {
-    
-    return(
-        <a href={link} target={target} className={`nav-item ${active === true ? 'active-nav' : ''} ms-4 fs-2 py-1`}>
-            <h4 className="mb-0">{label}</h4>
-        </a>
-    )
-}
+              <div className="mobile-nav-footer">
+                <p className="mobile-nav-cta">Let&apos;s work together</p>
+                <a href="mailto:audrueygana.uiux@gmail.com" className="mobile-nav-email">
+                  audrueygana.uiux@gmail.com
+                </a>
+              </div>
+            </motion.nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
+export default CUSTOM_HEADER;

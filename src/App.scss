@@ -1,5 +1,28 @@
 @import './custom.scss';
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+// ============================================
+// CSS Custom Properties (for runtime access)
+// ============================================
+:root {
+  --color-primary: #FC5130;
+  --color-secondary: #4C66FF;
+  --color-light: #FFF5E3;
+  --color-dark: #303036;
+  --font-display: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+// ============================================
+// Base Styles
+// ============================================
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 #root {
   margin: 0px auto;
@@ -8,67 +31,168 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: "Inconsolata", monospace;
+  font-family: $font-body;
   color: $dark;
   background-color: $light;
-  background-image: url('@assets/svg/bg.svg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
+  position: relative;
+  overflow-x: hidden;
+
+  // Subtle noise texture overlay
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    pointer-events: none;
+    z-index: 9999;
+  }
 }
 
-html {
-  // background-color: $light;
-  // scroll-behavior: smooth;
-  // overflow-y: scroll;
-  // scroll-snap-type: y mandatory;
-  
+// ============================================
+// Typography Base Styles
+// ============================================
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: $dark;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+}
+
+h2 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+h3 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+h4 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+h5 {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
 }
 
 h6 {
-  font-family: "Inconsolata", monospace;
-  font-weight: 600;
-  color: $dark
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
 }
 
 body, p, span {
-  font-family: "Inconsolata", monospace;
-  font-weight: 600;
-  color: $dark
+  font-family: $font-body;
+  font-weight: 400;
+  color: $dark;
+  line-height: 1.6;
 }
 
+p {
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  margin-bottom: 1.5rem;
+}
+
+// Code and tech tags
+code, .tech-tag {
+  font-family: $font-mono;
+}
+
+// ============================================
+// Custom Selection
+// ============================================
+::selection {
+  background-color: rgba($primary, 0.3);
+  color: $dark;
+}
+
+::-moz-selection {
+  background-color: rgba($primary, 0.3);
+  color: $dark;
+}
+
+// ============================================
+// Link Styles
+// ============================================
+a {
+  color: $secondary;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+// ============================================
+// Container
+// ============================================
 .container {
-  // flex-grow: 1;
-  // flex-shrink: 0;
-  // flex-basis: auto;
   min-width: 90%;
 }
 
+// ============================================
+// Section Styles
+// ============================================
+.section-snap {
+  scroll-snap-align: start;
+}
+
+.full-height {
+  min-height: 100vh;
+}
+
+// ============================================
+// Utility Classes
+// ============================================
+.font-display {
+  font-family: $font-display;
+}
+
+.font-body {
+  font-body: $font-body;
+}
+
+.font-mono {
+  font-family: $font-mono;
+}
+
 .font-small {
-  font-size: 0.833rem;
+  font-size: 0.875rem;
 }
 
 .text-gray {
-  color: $border-color
+  color: $border-color;
 }
 
+.text-gradient {
+  @include gradient-text;
+}
+
+.glass {
+  @include glassmorphism;
+}
+
+// ============================================
+// Keyframe Animations
+// ============================================
 @keyframes fadeIn {
   from {
     opacity: 0;
-    //transform: translateY(-400px); // Moves the element 20 pixels up from its start position
   }
   to {
     opacity: 1;
-    //transform: translateY(0);
   }
 }
 
 @keyframes fadeInFromTop {
   from {
     opacity: 0;
-    transform: translateY(-40px); // Moves the element 20 pixels up from its start position
+    transform: translateY(-40px);
   }
   to {
     opacity: 1;
@@ -76,15 +200,21 @@ body, p, span {
   }
 }
 
-.fade-in-top {
-  opacity: 0; // Start from invisible
-  animation: fadeInFromTop 0.8s ease-out forwards; // Adding 500ms delay
+@keyframes fadeInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeInOutToTop {
   from {
     opacity: 1;
-    transform: translateY(0); // Moves the element 20 pixels up from its start position
+    transform: translateY(0);
   }
   to {
     opacity: 0;
@@ -92,9 +222,26 @@ body, p, span {
   }
 }
 
-.fade-out-top {
-  opacity: 0; // Start from invisible
-  animation: fadeInOutToTop 0.8s ease-out forwards; // Adding 500ms delay
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes bounce {
@@ -109,10 +256,6 @@ body, p, span {
   }
 }
 
-.bounce {
-  animation: bounce 2s infinite;
-}
-
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -122,25 +265,157 @@ body, p, span {
   }
 }
 
+@keyframes floatRotate {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blurIn {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+// ============================================
+// Animation Utility Classes
+// ============================================
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.fade-in-top {
+  opacity: 0;
+  animation: fadeInFromTop 0.8s ease-out forwards;
+}
+
+.fade-in-bottom {
+  opacity: 0;
+  animation: fadeInFromBottom 0.8s ease-out forwards;
+}
+
+.fade-out-top {
+  opacity: 0;
+  animation: fadeInOutToTop 0.8s ease-out forwards;
+}
+
+.slide-in-left {
+  opacity: 0;
+  animation: slideInFromLeft 0.8s ease-out forwards;
+}
+
+.slide-in-right {
+  opacity: 0;
+  animation: slideInFromRight 0.8s ease-out forwards;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
 .float {
   display: inline-block;
   animation: float 3s ease-in-out infinite;
 }
 
+.float-rotate {
+  display: inline-block;
+  animation: floatRotate 4s ease-in-out infinite;
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.blur-in {
+  animation: blurIn 0.8s ease-out forwards;
+}
+
+// Animation delays
+@for $i from 1 through 10 {
+  .delay-#{$i} {
+    animation-delay: #{$i * 100}ms;
+  }
+}
+
+// ============================================
+// Reduced Motion Support
+// ============================================
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// ============================================
+// Section Backgrounds & Headers
+// ============================================
 .section-header {
   height: 150px;
   width: 100%;
   background-image: url('@assets/svg/tabs.svg');
   background-position: center;
-  background-size: contain; /* Adjust as needed */
-  background-repeat: no-repeat; /* Prevent repetition */
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .section-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 36px;
+  border-radius: $radius-xl;
   background-color: $light;
   height: 100%;
 }
@@ -162,4 +437,107 @@ body, p, span {
   border-radius: 5px;
 }
 
+// ============================================
+// Card Styles
+// ============================================
+.card-glass {
+  @include glassmorphism;
+  border-radius: $radius-lg;
+  padding: $space-lg;
+}
 
+.card-bordered {
+  background: white;
+  border: 2px solid $primary;
+  border-radius: $radius-md;
+  padding: $space-lg;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: $secondary;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba($dark, 0.1);
+  }
+}
+
+// ============================================
+// Button Overrides
+// ============================================
+.btn {
+  font-family: $font-display;
+  font-weight: 600;
+  border-radius: $radius-full;
+  padding: 0.75rem 1.5rem;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-primary {
+  background: $primary;
+  border-color: $primary;
+
+  &:hover {
+    background: darken($primary, 8%);
+    border-color: darken($primary, 8%);
+  }
+}
+
+.btn-secondary {
+  background: $secondary;
+  border-color: $secondary;
+
+  &:hover {
+    background: darken($secondary, 8%);
+    border-color: darken($secondary, 8%);
+  }
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid $dark;
+  color: $dark;
+
+  &:hover {
+    background: $dark;
+    color: $light;
+  }
+}
+
+// ============================================
+// Tech Tag Styles
+// ============================================
+.tech-tag {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: $radius-full;
+  background: rgba($secondary, 0.1);
+  color: $secondary;
+  display: inline-block;
+  margin: 0.25rem;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $secondary;
+    color: white;
+    transform: scale(1.05);
+  }
+}
+
+.tech-tag-primary {
+  background: rgba($primary, 0.1);
+  color: $primary;
+
+  &:hover {
+    background: $primary;
+    color: white;
+  }
+}

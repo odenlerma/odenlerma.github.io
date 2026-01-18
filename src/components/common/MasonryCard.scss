@@ -1,0 +1,392 @@
+@import 'custom.scss';
+
+// ============================================
+// Masonry Card Component - Pinterest Style
+// ============================================
+
+// Animated gradient border keyframes
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes featuredBadgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.masonry-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition:
+    border-color $transition-base,
+    box-shadow $transition-base;
+  text-decoration: none;
+  color: $dark;
+  break-inside: avoid;
+  margin-bottom: $space-lg;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+  &:hover {
+    border-color: $primary;
+    box-shadow:
+      0 20px 60px rgba($primary, 0.15),
+      0 8px 24px rgba($dark, 0.1);
+
+    .masonry-card__link {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .masonry-card__image-overlay {
+      opacity: 0.4;
+    }
+
+    .masonry-card__image {
+      transform: scale(1.08);
+    }
+
+    .masonry-card__tech-tag {
+      transform: translateY(-2px);
+
+      &:nth-child(2) { transition-delay: 0.02s; }
+      &:nth-child(3) { transition-delay: 0.04s; }
+      &:nth-child(4) { transition-delay: 0.06s; }
+      &:nth-child(5) { transition-delay: 0.08s; }
+      &:nth-child(6) { transition-delay: 0.1s; }
+    }
+  }
+
+  // ========================================
+  // Featured Card - Special Treatment
+  // ========================================
+  &--featured {
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      padding: 3px;
+      border-radius: calc($radius-xl + 3px);
+      background: linear-gradient(
+        135deg,
+        $primary,
+        $secondary,
+        $primary,
+        $secondary
+      );
+      background-size: 300% 300%;
+      animation: gradientShift 4s ease-in-out infinite;
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .masonry-card__image-wrapper {
+      height: 240px;
+
+      @media (max-width: 768px) {
+        height: 200px;
+      }
+    }
+  }
+
+  // ========================================
+  // Size Variants
+  // ========================================
+  &--large {
+    .masonry-card__image-wrapper {
+      height: 200px;
+
+      @media (max-width: 768px) {
+        height: 180px;
+      }
+    }
+
+    .masonry-card__title {
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+    }
+  }
+
+  &--medium {
+    .masonry-card__image-wrapper {
+      height: 150px;
+
+      @media (max-width: 768px) {
+        height: 130px;
+      }
+    }
+
+    .masonry-card__title {
+      font-size: clamp(1rem, 1.5vw, 1.125rem);
+    }
+
+    .masonry-card__subtitle {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+
+  &--small {
+    .masonry-card__content {
+      padding: $space-md;
+    }
+
+    .masonry-card__title {
+      font-size: 1rem;
+    }
+
+    .masonry-card__subtitle {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      font-size: 0.8rem;
+    }
+
+    .masonry-card__tech {
+      .masonry-card__tech-tag {
+        font-size: 0.6rem;
+        padding: 0.15rem 0.4rem;
+      }
+    }
+  }
+
+  &--compact {
+    .masonry-card__content {
+      padding: $space-sm $space-md;
+    }
+
+    .masonry-card__title {
+      font-size: 0.9rem;
+    }
+
+    .masonry-card__subtitle {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      font-size: 0.75rem;
+    }
+
+    .masonry-card__tech {
+      .masonry-card__tech-tag {
+        font-size: 0.55rem;
+        padding: 0.1rem 0.35rem;
+      }
+    }
+
+    .masonry-card__header {
+      margin-bottom: $space-xs;
+    }
+  }
+}
+
+// ========================================
+// Image Section
+// ========================================
+.masonry-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    rgba($primary, 0.08),
+    rgba($secondary, 0.08)
+  );
+}
+
+.masonry-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.65, 0.3, 0.9);
+  will-change: transform;
+}
+
+.masonry-card__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba($primary, 0.8),
+    rgba($secondary, 0.8)
+  );
+  opacity: 0;
+  transition: opacity $transition-base;
+  pointer-events: none;
+}
+
+// ========================================
+// Content Section
+// ========================================
+.masonry-card__content {
+  padding: $space-md $space-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  flex: 1;
+
+  @media (max-width: 768px) {
+    padding: $space-md;
+  }
+}
+
+.masonry-card__header {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  margin-bottom: $space-xs;
+  flex-wrap: wrap;
+}
+
+.masonry-card__year {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: $primary;
+  background: rgba($primary, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: $radius-sm;
+  white-space: nowrap;
+}
+
+.masonry-card__featured-badge {
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: white;
+  background: linear-gradient(135deg, $primary, $secondary);
+  padding: 0.2rem 0.5rem;
+  border-radius: $radius-sm;
+  animation: featuredBadgePulse 2s ease-in-out infinite;
+}
+
+.masonry-card__title {
+  font-family: $font-display;
+  font-weight: 700;
+  color: $dark;
+  margin: 0;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.masonry-card__subtitle {
+  font-family: $font-body;
+  font-size: 0.85rem;
+  color: rgba($dark, 0.65);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+// ========================================
+// Tech Tags - Staggered Animation
+// ========================================
+.masonry-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding-top: $space-sm;
+}
+
+.masonry-card__tech-tag {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 0.2rem 0.5rem;
+  border-radius: $radius-full;
+  background: rgba($secondary, 0.08);
+  color: $secondary;
+  border: 1px solid rgba($secondary, 0.15);
+  transition:
+    transform $transition-fast,
+    background $transition-fast,
+    border-color $transition-fast;
+  white-space: nowrap;
+
+  &--more {
+    background: rgba($dark, 0.05);
+    color: rgba($dark, 0.6);
+    border-color: rgba($dark, 0.1);
+  }
+}
+
+// ========================================
+// Link Section - Reveal on Hover
+// ========================================
+.masonry-card__link {
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
+  font-family: $font-display;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $secondary;
+  margin-top: $space-sm;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity $transition-base,
+    transform $transition-base;
+
+  i {
+    font-size: 0.9rem;
+    transition: transform $transition-fast;
+  }
+
+  .masonry-card:hover & i {
+    animation: arrowBounce 0.6s ease-in-out infinite;
+  }
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(3px, -3px);
+  }
+}
+
+// ========================================
+// Responsive Adjustments
+// ========================================
+@media (max-width: 768px) {
+  .masonry-card {
+    margin-bottom: $space-md;
+    border-radius: $radius-lg;
+
+    &--featured::before {
+      border-radius: calc($radius-lg + 3px);
+    }
+  }
+
+  .masonry-card__link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
