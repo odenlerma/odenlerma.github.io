@@ -13,7 +13,7 @@ Three sequential phases deliver a secured, scoped AI chatbot embedded in Audruey
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Infrastructure** - Deploy secured Cloudflare Worker proxy with API key, CORS lockdown, rate limiting, and SSE streaming (Completed 2026-02-28)
-- [ ] **Phase 2: Prompt Engineering** - Build and validate the system prompt that grounds the chatbot to Audruey's resume and portfolio data
+- [x] **Phase 2: Prompt Engineering** - Build and validate the system prompt that grounds the chatbot to Audruey's resume and portfolio data (Completed 2026-02-28)
 - [ ] **Phase 3: Chat Widget** - Build the full chat UI, integrate with the Worker proxy, and deploy to the live portfolio
 
 ## Phase Details
@@ -46,8 +46,8 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 02-01: Write chatPrompt.js with full resume structured data, grounding instruction, scope enforcement, persona/tone definition, anti-injection delimiters, and website context
-- [ ] 02-02: Validate prompt via 30+ direct Worker API calls covering factual questions, edge cases, out-of-scope deflections, and adversarial injection attempts
+- [x] 02-01: Write chatPrompt.js with full resume structured data, grounding instruction, scope enforcement, persona/tone definition, anti-injection delimiters, and website context
+- [x] 02-02: Validate prompt via 30+ direct Worker API calls covering factual questions, edge cases, out-of-scope deflections, and adversarial injection attempts
 
 ### Phase 3: Chat Widget
 **Goal**: A fully functioning chat widget embedded in the live portfolio — visible to recruiters visiting odenlerma.github.io — that answers questions about Audruey's background in real time with streaming responses
@@ -74,5 +74,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Infrastructure | 2/2 | Complete | 2026-02-28 |
-| 2. Prompt Engineering | 0/2 | Not started | - |
+| 2. Prompt Engineering | 2/2 | Complete | 2026-02-28 |
 | 3. Chat Widget | 0/3 | Not started | - |

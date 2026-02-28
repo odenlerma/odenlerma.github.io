@@ -16,13 +16,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Prompt Engineering
 
-- [ ] **PRMT-01**: System prompt contains full resume data (experience, skills, education, achievements) structured with explicit context delimiters
-- [ ] **PRMT-02**: System prompt enforces strict scope — chatbot answers ONLY from provided resume and website context
-- [ ] **PRMT-03**: Chatbot gracefully deflects out-of-scope questions with warm redirect (not rude rejection)
-- [ ] **PRMT-04**: Chatbot promotes Audruey's skills and experience for hiring in a professional, warm tone
-- [ ] **PRMT-05**: System prompt includes anti-hallucination grounding instruction — never fabricate information
-- [ ] **PRMT-06**: System prompt includes anti-prompt-injection defenses with structural delimiters
-- [ ] **PRMT-07**: Website content (projects, about section, tech stack) included in chatbot context
+- [x] **PRMT-01**: System prompt contains full resume data (experience, skills, education, achievements) structured with explicit context delimiters
+- [x] **PRMT-02**: System prompt enforces strict scope — chatbot answers ONLY from provided resume and website context
+- [x] **PRMT-03**: Chatbot gracefully deflects out-of-scope questions with warm redirect (not rude rejection)
+- [x] **PRMT-04**: Chatbot promotes Audruey's skills and experience for hiring in a professional, warm tone
+- [x] **PRMT-05**: System prompt includes anti-hallucination grounding instruction — never fabricate information
+- [x] **PRMT-06**: System prompt includes anti-prompt-injection defenses with structural delimiters
+- [x] **PRMT-07**: Website content (projects, about section, tech stack) included in chatbot context
 
 ### Chat Widget UI
 
@@ -79,13 +79,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | INFRA-02 | Phase 1 | Complete |
 | INFRA-03 | Phase 1 | Complete |
 | INFRA-04 | Phase 1 | Complete |
-| PRMT-01 | Phase 2 | Pending |
-| PRMT-02 | Phase 2 | Pending |
-| PRMT-03 | Phase 2 | Pending |
-| PRMT-04 | Phase 2 | Pending |
-| PRMT-05 | Phase 2 | Pending |
-| PRMT-06 | Phase 2 | Pending |
-| PRMT-07 | Phase 2 | Pending |
+| PRMT-01 | Phase 2 | Complete |
+| PRMT-02 | Phase 2 | Complete |
+| PRMT-03 | Phase 2 | Complete |
+| PRMT-04 | Phase 2 | Complete |
+| PRMT-05 | Phase 2 | Complete |
+| PRMT-06 | Phase 2 | Complete |
+| PRMT-07 | Phase 2 | Complete |
 | CHAT-01 | Phase 3 | Pending |
 | CHAT-02 | Phase 3 | Pending |
 | CHAT-03 | Phase 3 | Pending |
