@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import './App.scss'
 import HomePage from '@pages/HomePage'
 import * as COMPONENTS from '@components'
+import { ChatProvider } from '@/context/ChatContext'
 
 function App() {
   useEffect(() => {
@@ -10,10 +11,10 @@ function App() {
     console.log('Audruey Gana')
   }, [])
   return (
-    <>
+    <ChatProvider>
       <HomePage />
       <COMPONENTS.CHAT_WIDGET />
-    </>
+    </ChatProvider>
   )
 }
 
