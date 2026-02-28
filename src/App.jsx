@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import './App.scss'
 import HomePage from '@pages/HomePage'
+import * as COMPONENTS from '@components'
 
 function App() {
   useEffect(() => {
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
       <HomePage />
+      <COMPONENTS.CHAT_WIDGET />
     </>
   )
 }

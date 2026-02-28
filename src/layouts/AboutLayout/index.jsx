@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import './style.scss';
 import AnimatedText, { FadeInView, StaggerContainer, StaggerItem } from '@components/common/AnimatedText';
 import profileImg from '@assets/svg/audy.svg';
-import resume from '@assets/Audruey.pdf';
+import resume from '@assets/Audruey Gana - CV.pdf';
 
 // Tech stack data with categories
 const techStack = [
