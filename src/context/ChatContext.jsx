@@ -1,4 +1,5 @@
-import { createContext, useContext, useReducer, useCallback } from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useContext, useReducer } from 'react';
 import { useChatApi } from '@hooks/useChatApi';
 
 /**
@@ -82,6 +83,7 @@ export function chatReducer(state, action) {
 const ChatContext = createContext(null);
 
 // ─── Provider ───────────────────────────────────────────────────────
+// eslint-disable-next-line react/prop-types
 export function ChatProvider({ children }) {
   const [state, dispatch] = useReducer(chatReducer, initialState);
   const { sendMessage, abort } = useChatApi(dispatch);

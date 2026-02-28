@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 
+/* eslint-disable react/prop-types */
 /**
  * Individual chat message bubble.
  * Styling varies by role (user/assistant) and state (error/limit).
