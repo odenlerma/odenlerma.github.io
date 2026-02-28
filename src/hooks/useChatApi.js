@@ -84,7 +84,10 @@ export function useChatApi(dispatch) {
         if (err.name !== 'AbortError') {
           dispatch({
             type: 'SET_ERROR',
-            payload: 'Oops, something went wrong. Please try again.',
+            payload: {
+              id: botMessageId,
+              message: 'Oops, something went wrong. Please try again.',
+            },
           });
         }
       }

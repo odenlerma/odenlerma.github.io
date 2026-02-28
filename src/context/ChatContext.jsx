@@ -58,7 +58,23 @@ export function chatReducer(state, action) {
       return { ...state, isStreaming: false };
 
     case 'SET_ERROR':
-      return { ...state, isStreaming: false, error: action.payload };
+      return {
+        ...state,
+        isStreaming: false,
+        error: action.payload.message,
+        messages: state.messages.map((m) =>
+          m.id === action.payload.id
+            ? { ...m, isError: true, content: action.payload.message }
+            : m
+        ),
+      };
+
+    case 'CLEAR_ERROR_MESSAGE':
+      return {
+        ...state,
+        error: null,
+        messages: state.messages.filter((m) => !m.isError),
+      };
 
     case 'ADD_SYSTEM_MESSAGE':
       return {
