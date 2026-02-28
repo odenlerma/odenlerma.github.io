@@ -18,29 +18,30 @@ progress:
 See: .planning/PROJECT.md (updated 2026-02-28)
 
 **Core value:** Visitors can instantly get accurate, personalized answers about Audruey's qualifications and experience — turning passive portfolio browsing into an engaging conversation that promotes her for hiring.
-**Current focus:** Phase 4 — Fix Error Display (gap closure)
+**Current focus:** Phase 6 — Phase 3 Verification & Cleanup
 
 ## Current Position
 
-Phase: 4 of 4 (Fix Error Display)
-Plan: 1 of 1 in current phase
-Status: Complete
-Last activity: 2026-02-28 — Phase 4 Plan 1 complete (CHAT-08 closed)
+Phase: 6 of 6 (Phase 3 Verification & Cleanup)
+Plan: 0 of 0 in current phase
+Status: Not started
+Last activity: 2026-02-28 — Phase 5 complete (deploy.yml env injection, all chat features unblocked in production)
 
-Progress: [████████░░] 75%
+Progress: [████████░░] 83%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
+- Total plans completed: 8
 - Average duration: ~2min
-- Total execution time: ~12min
+- Total execution time: ~15min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 04-fix-error-display | 1 | 6min | 6min |
+| 05-fix-production-deploy | 1 | 3min | 3min |
 
 **Recent Trend:**
 - Last 5 plans: —
@@ -64,6 +65,9 @@ Recent decisions affecting current work:
 - [Phase 4]: SET_ERROR payload changed to object { id, message } so reducer can find and update the correct bot message in place via map-by-id
 - [Phase 4]: apiMessages built before CLEAR_ERROR_MESSAGE dispatch to capture clean list without timing ambiguity
 - [Phase 4]: isError flag on message object drives error bubble rendering (no separate state.error UI consumer needed)
+- [Phase 5]: Build-time validation with exit 1 rather than allowing silent empty VITE_PROXY_URL
+- [Phase 5]: Step-level env (not job-level) limits secret scope in GitHub Actions
+- [Phase 5]: Setup documented in existing USER-SETUP.md rather than creating new file
 
 ### Pending Todos
 
@@ -77,5 +81,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-28
-Stopped at: Completed 04-fix-error-display/04-01-PLAN.md — CHAT-08 closed
+Stopped at: Completed 05-fix-production-deploy/05-01-PLAN.md — deploy.yml env injection, all chat features unblocked in production
 Resume file: None

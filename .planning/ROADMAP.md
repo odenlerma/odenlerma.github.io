@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Prompt Engineering** - Build and validate the system prompt that grounds the chatbot to Audruey's resume and portfolio data (Completed 2026-02-28)
 - [ ] **Phase 3: Chat Widget** - Build the full chat UI, integrate with the Worker proxy, and deploy to the live portfolio
 - [x] **Phase 4: Fix Error Display & Retry Flow** - Wire error state to UI, fix msg.isError, make retry button functional (Gap closure, Completed 2026-02-28)
-- [ ] **Phase 5: Fix Production Deployment Pipeline** - Inject VITE_PROXY_URL in deploy.yml for production builds (Gap closure)
+- [x] **Phase 5: Fix Production Deployment Pipeline** - Inject VITE_PROXY_URL in deploy.yml for production builds (Gap closure, Completed 2026-02-28)
 - [ ] **Phase 6: Phase 3 Verification & Cleanup** - Create Phase 3 VERIFICATION.md, fix roadmap status, remove orphaned export (Gap closure)
 
 ## Phase Details
@@ -93,7 +93,10 @@ Plans:
   2. The production bundle does NOT contain "localhost:8787"
   3. Document required GitHub secret setup for VITE_PROXY_URL
 
-Plans: TBD
+**Plans:** 1 plan
+
+Plans:
+- [x] 05-01: Inject VITE_PROXY_URL from GitHub Actions secrets into deploy.yml build step with pre-build validation; document setup in USER-SETUP.md
 
 ### Phase 6: Phase 3 Verification & Cleanup
 **Goal**: All Phase 3 requirements formally verified with VERIFICATION.md, roadmap status corrected, dead code removed
@@ -118,5 +121,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 2. Prompt Engineering | 2/2 | Complete | 2026-02-28 |
 | 3. Chat Widget | 2/2 | Executed (unverified) | 2026-02-28 |
 | 4. Fix Error Display & Retry | 1/1 | Complete | 2026-02-28 |
-| 5. Fix Production Deploy | 0/0 | Not started | - |
+| 5. Fix Production Deploy | 1/1 | Complete | 2026-02-28 |
 | 6. Phase 3 Verification & Cleanup | 0/0 | Not started | - |
