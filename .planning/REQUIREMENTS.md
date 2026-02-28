@@ -33,7 +33,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **CHAT-05**: Streaming text response — tokens rendered as they arrive from the API
 - [ ] **CHAT-06**: Scrollable message history within the current session
 - [ ] **CHAT-07**: Input field with send button and Enter key submit support
-- [ ] **CHAT-08**: Error message displayed on network/API failure with friendly retry prompt
+- [x] **CHAT-08**: Error message displayed on network/API failure with friendly retry prompt
 - [ ] **CHAT-09**: Mobile responsive layout — chat window adapts to mobile viewport without covering critical content
 - [ ] **CHAT-10**: Widget styled to match portfolio design system (colors, fonts, glassmorphism)
 
@@ -93,7 +93,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CHAT-05 | Phase 3 → Phase 6 | Pending |
 | CHAT-06 | Phase 3 → Phase 6 | Pending |
 | CHAT-07 | Phase 3 → Phase 6 | Pending |
-| CHAT-08 | Phase 3 → Phase 4 | Pending |
+| CHAT-08 | Phase 4 | Complete |
 | CHAT-09 | Phase 3 → Phase 6 | Pending |
 | CHAT-10 | Phase 3 → Phase 6 | Pending |
 | COST-01 | Phase 3 → Phase 6 | Pending |
@@ -103,9 +103,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 - v1 requirements: 23 total
 - Mapped to phases: 23
 - Unmapped: 0
-- Complete: 11 (Phase 1 + 2)
-- Pending: 12 (assigned to gap closure phases 4-6)
+- Complete: 12 (Phase 1 + 2 + CHAT-08 via Phase 4)
+- Pending: 11 (assigned to gap closure phases 5-6)
 
 ---
 *Requirements defined: 2026-02-28*
-*Last updated: 2026-02-28 after roadmap creation — traceability complete*
+*Last updated: 2026-02-28 after Phase 4 completion — CHAT-08 closed*

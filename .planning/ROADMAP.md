@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Infrastructure** - Deploy secured Cloudflare Worker proxy with API key, CORS lockdown, rate limiting, and SSE streaming (Completed 2026-02-28)
 - [x] **Phase 2: Prompt Engineering** - Build and validate the system prompt that grounds the chatbot to Audruey's resume and portfolio data (Completed 2026-02-28)
 - [ ] **Phase 3: Chat Widget** - Build the full chat UI, integrate with the Worker proxy, and deploy to the live portfolio
-- [ ] **Phase 4: Fix Error Display & Retry Flow** - Wire error state to UI, fix msg.isError, make retry button functional (Gap closure)
+- [x] **Phase 4: Fix Error Display & Retry Flow** - Wire error state to UI, fix msg.isError, make retry button functional (Gap closure, Completed 2026-02-28)
 - [ ] **Phase 5: Fix Production Deployment Pipeline** - Inject VITE_PROXY_URL in deploy.yml for production builds (Gap closure)
 - [ ] **Phase 6: Phase 3 Verification & Cleanup** - Create Phase 3 VERIFICATION.md, fix roadmap status, remove orphaned export (Gap closure)
 
@@ -81,7 +81,7 @@ Plans:
 **Plans:** 1 plan
 
 Plans:
-- [ ] 04-01: Wire SET_ERROR to inline error bubble, add CLEAR_ERROR_MESSAGE reducer, fix handleRetry, add error border styling
+- [x] 04-01: Wire SET_ERROR to inline error bubble, add CLEAR_ERROR_MESSAGE reducer, fix handleRetry, add error border styling
 
 ### Phase 5: Fix Production Deployment Pipeline
 **Goal**: The deployed production bundle uses the real Cloudflare Worker URL — not localhost:8787 — so the chatbot functions on the live site
@@ -117,6 +117,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 1. Infrastructure | 2/2 | Complete | 2026-02-28 |
 | 2. Prompt Engineering | 2/2 | Complete | 2026-02-28 |
 | 3. Chat Widget | 2/2 | Executed (unverified) | 2026-02-28 |
-| 4. Fix Error Display & Retry | 0/0 | Not started | - |
+| 4. Fix Error Display & Retry | 1/1 | Complete | 2026-02-28 |
 | 5. Fix Production Deploy | 0/0 | Not started | - |
 | 6. Phase 3 Verification & Cleanup | 0/0 | Not started | - |
