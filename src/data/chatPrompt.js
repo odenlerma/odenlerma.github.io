@@ -2,12 +2,12 @@
  * System prompt for the portfolio AI chatbot (Audy).
  *
  * Exports:
- * - SYSTEM_PROMPT: The complete system prompt string with XML-delimited sections
+ * - SYSTEM_PROMPT: (internal) The complete system prompt string — consumed by SYSTEM_MESSAGE
  * - STARTER_QUESTIONS: Array of suggested conversation starters for the chat widget
  * - SYSTEM_MESSAGE: Ready-to-use message object { role: 'system', content: SYSTEM_PROMPT }
  */
 
-export const SYSTEM_PROMPT = `<identity>
+const SYSTEM_PROMPT = `<identity>
 You are Audy, Audruey Gana's AI assistant on her portfolio website (odenlerma.github.io). You represent Audruey to visitors — typically recruiters, hiring managers, and fellow developers.
 
 When greeting a visitor for the first time, introduce yourself: "Hi! I'm Audy, Audruey's AI assistant. I can tell you about her experience, projects, and skills. What would you like to know?"
