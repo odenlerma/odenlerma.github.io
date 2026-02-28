@@ -2,7 +2,7 @@
 
 **Generated:** 2026-02-28
 **Phase:** 01-infrastructure
-**Status:** Incomplete
+**Status:** Complete
 
 Complete these items for the Worker deployment to function. Claude automated the project scaffold, secrets template, and gitignore — these items require human access to external dashboards.
 
@@ -12,6 +12,7 @@ Complete these items for the Worker deployment to function. Claude automated the
 |--------|----------|--------|--------|
 | [ ] | `CLOUDFLARE_API_TOKEN` | Cloudflare Dashboard -> My Profile -> API Tokens -> Create Token -> Edit Cloudflare Workers template | GitHub repo secret (Settings -> Secrets -> Actions) |
 | [ ] | `DEEPSEEK_API_KEY` | Already in .dev.vars for local dev; needs `wrangler secret put` for production | Cloudflare Worker encrypted secret |
+| [ ] | `VITE_PROXY_URL` | Cloudflare Dashboard -> Workers & Pages -> portfolio-chat-proxy -> copy the URL (e.g. `https://portfolio-chat-proxy.xxx.workers.dev`) | GitHub repo secret (Settings -> Secrets -> Actions) |
 
 ## Account Setup
 
@@ -38,6 +39,13 @@ Complete these items for the Worker deployment to function. Claude automated the
     ```
   - Paste your DeepSeek API key when prompted
   - Wrangler will authenticate via browser if needed
+
+- [ ] **Add VITE_PROXY_URL to GitHub repo secrets**
+  - Location: GitHub repo -> Settings -> Secrets and variables -> Actions -> New repository secret
+  - Name: `VITE_PROXY_URL`
+  - Value: Your Worker URL from Cloudflare Dashboard -> Workers & Pages -> portfolio-chat-proxy
+  - Format: `https://portfolio-chat-proxy.<your-subdomain>.workers.dev`
+  - **Why:** The deploy workflow injects this during `npm run build`. Without it, the build will fail with a validation error.
 
 ## Local Development
 
