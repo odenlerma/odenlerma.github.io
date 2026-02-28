@@ -52,29 +52,29 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| THEME-01 | — | Pending |
-| THEME-02 | — | Pending |
-| THEME-03 | — | Pending |
-| THEME-04 | — | Pending |
-| THEME-05 | — | Pending |
-| THEME-06 | — | Pending |
-| THEME-07 | — | Pending |
-| THEME-08 | — | Pending |
-| THEME-09 | — | Pending |
-| VIS-01 | — | Pending |
-| VIS-02 | — | Pending |
-| VIS-03 | — | Pending |
-| VIS-04 | — | Pending |
-| VIS-05 | — | Pending |
-| VIS-06 | — | Pending |
-| RESP-01 | — | Pending |
-| RESP-02 | — | Pending |
+| THEME-01 | Phase 7 | Pending |
+| THEME-02 | Phase 7 | Pending |
+| THEME-03 | Phase 7 | Pending |
+| THEME-04 | Phase 7 | Pending |
+| THEME-05 | Phase 7 | Pending |
+| THEME-06 | Phase 7 | Pending |
+| THEME-07 | Phase 7 | Pending |
+| THEME-08 | Phase 7 | Pending |
+| THEME-09 | Phase 7 | Pending |
+| VIS-01 | Phase 8 | Pending |
+| VIS-02 | Phase 8 | Pending |
+| VIS-03 | Phase 8 | Pending |
+| VIS-04 | Phase 8 | Pending |
+| VIS-05 | Phase 8 | Pending |
+| VIS-06 | Phase 8 | Pending |
+| RESP-01 | Phase 8 | Pending |
+| RESP-02 | Phase 7 | Pending |
 
 **Coverage:**
 - v1.1 requirements: 17 total
-- Mapped to phases: 0
-- Unmapped: 17 ⚠️
+- Mapped to phases: 17
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-02-28*
-*Last updated: 2026-02-28 after initial definition*
+*Last updated: 2026-02-28 after roadmap creation*
