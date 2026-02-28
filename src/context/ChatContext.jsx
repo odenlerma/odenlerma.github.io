@@ -15,16 +15,25 @@ const initialState = {
   error: null,         // Current error message string or null
   messageCount: 0,     // Number of user messages sent (for session cap)
   isOpen: false,       // Whether the chat panel is open
+  hasInteracted: false, // true after first chat open — stops FAB glow
 };
 
 // ─── Reducer ────────────────────────────────────────────────────────
 export function chatReducer(state, action) {
   switch (action.type) {
     case 'TOGGLE_OPEN':
-      return { ...state, isOpen: !state.isOpen };
+      return {
+        ...state,
+        isOpen: !state.isOpen,
+        hasInteracted: state.hasInteracted || !state.isOpen,
+      };
 
     case 'SET_OPEN':
-      return { ...state, isOpen: action.payload };
+      return {
+        ...state,
+        isOpen: action.payload,
+        hasInteracted: state.hasInteracted || action.payload,
+      };
 
     case 'ADD_USER_MESSAGE':
       return {
