@@ -6,6 +6,7 @@ const navItems = [
   { id: 'intro', label: 'Home', href: '#intro', icon: 'bi-house-heart-fill', color: '#FF6B9D' },
   { id: 'works', label: 'Works', href: '#works', icon: 'bi-grid-3x3-gap-fill', color: '#9B6BFF' },
   { id: 'about', label: 'About', href: '#about', icon: 'bi-person-heart', color: '#6BCFFF' },
+  { id: 'ask-ai', label: 'AI Chat', href: '#ask-ai', icon: 'bi-chat-dots-fill', color: '#FC5130' },
   { id: 'resume', label: 'Resume', href: resume, external: true, icon: 'bi-file-earmark-arrow-down-fill', color: '#FFB86B' }
 ];
 
