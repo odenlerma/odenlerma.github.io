@@ -1,17 +1,29 @@
 @import 'custom.scss';
 
+// ─── FAB Pulse Glow Animation ─────────────────────────────────────────
+@keyframes fab-pulse-glow {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba($primary, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba($primary, 0.5),
+                0 0 30px rgba($primary, 0.3),
+                0 0 60px rgba($secondary, 0.15);
+  }
+}
+
 // ─── FAB (Floating Action Button) ────────────────────────────────────
 .chat-fab {
   position: fixed;
   bottom: 100px;
   right: 24px;
-  width: 56px;
-  height: 56px;
+  width: 68px;
+  height: 68px;
   border-radius: $radius-full;
   background: linear-gradient(135deg, $primary, $secondary);
   border: none;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,19 +32,23 @@
   z-index: 1050;
   @include hover-lift(-4px);
 
+  &--glow {
+    animation: fab-pulse-glow 2.5s ease-in-out infinite;
+  }
+
   @media (max-width: 768px) {
     bottom: 80px;
     right: 16px;
-    width: 48px;
-    height: 48px;
-    font-size: 1.25rem;
+    width: 56px;
+    height: 56px;
+    font-size: 1.4rem;
   }
 }
 
 // ─── Chat Window Panel ───────────────────────────────────────────────
 .chat-window {
   position: fixed;
-  bottom: 170px;
+  bottom: 182px;
   right: 24px;
   width: 380px;
   max-height: 520px;
