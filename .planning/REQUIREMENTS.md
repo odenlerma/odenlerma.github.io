@@ -21,16 +21,16 @@ Requirements for Chat Interface Redesign milestone. Each maps to roadmap phases.
 
 ### Visibility & Prominence
 
-- [ ] **VIS-01**: Dedicated "Ask My AI" section added to main page flow (scroll-tracked like Works/About)
-- [ ] **VIS-02**: Section includes headline, description text, and embedded chat interface
-- [ ] **VIS-03**: Floating chat FAB remains accessible from any scroll position
-- [ ] **VIS-04**: FAB has attention-drawing animation (pulse/glow) to encourage interaction
-- [ ] **VIS-05**: FAB is larger and more prominent than current 56px size
-- [ ] **VIS-06**: Chat section uses framer-motion entrance animation when scrolled into view
+- [x] **VIS-01**: Dedicated "Ask My AI" section added to main page flow (scroll-tracked like Works/About)
+- [x] **VIS-02**: Section includes headline, description text, and embedded chat interface
+- [x] **VIS-03**: Floating chat FAB remains accessible from any scroll position
+- [x] **VIS-04**: FAB has attention-drawing animation (pulse/glow) to encourage interaction
+- [x] **VIS-05**: FAB is larger and more prominent than current 56px size
+- [x] **VIS-06**: Chat section uses framer-motion entrance animation when scrolled into view
 
 ### Responsive
 
-- [ ] **RESP-01**: Chat section layout adapts for mobile screens
+- [x] **RESP-01**: Chat section layout adapts for mobile screens
 - [x] **RESP-02**: Floating widget maintains responsive behavior with new theme
 
 ## Future Requirements
@@ -61,13 +61,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | THEME-07 | Phase 7 | Complete |
 | THEME-08 | Phase 7 | Complete |
 | THEME-09 | Phase 7 | Complete |
-| VIS-01 | Phase 8 | Pending |
-| VIS-02 | Phase 8 | Pending |
-| VIS-03 | Phase 8 | Pending |
-| VIS-04 | Phase 8 | Pending |
-| VIS-05 | Phase 8 | Pending |
-| VIS-06 | Phase 8 | Pending |
-| RESP-01 | Phase 8 | Pending |
+| VIS-01 | Phase 8 | Complete |
+| VIS-02 | Phase 8 | Complete |
+| VIS-03 | Phase 8 | Complete |
+| VIS-04 | Phase 8 | Complete |
+| VIS-05 | Phase 8 | Complete |
+| VIS-06 | Phase 8 | Complete |
+| RESP-01 | Phase 8 | Complete |
 | RESP-02 | Phase 7 | Complete |
 
 **Coverage:**
@@ -77,4 +77,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-28*
-*Last updated: 2026-02-28 after roadmap creation*
+*Last updated: 2026-02-28 after Phase 8 completion*
