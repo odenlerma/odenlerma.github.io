@@ -59,12 +59,11 @@ Plans:
   3. After 15-20 messages in one session, the chat displays a friendly session limit message instead of sending another API request
   4. Disconnecting from the internet and sending a message shows a friendly error message with a retry prompt — not a blank screen or crash
   5. Opening the chat widget on a mobile device (or 375px viewport) shows a usable, non-overlapping chat panel that does not block the portfolio's navigation or hero content
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
 - [ ] 03-01: Build ChatContext + useReducer state layer and useChatApi hook with SSE streaming and session message cap enforcement
-- [ ] 03-02: Build ChatFAB, ChatWindow, ChatHeader, MessageList, MessageBubble, ChatInput components with framer-motion open/close animation; integrate welcome message, starter questions, typing indicator, and error state
-- [ ] 03-03: Apply full SCSS styling to match portfolio design system (glassmorphism, $primary, $dark, DM Sans), ensure mobile responsive layout, add widget to barrel export and App.jsx, verify on production build
+- [ ] 03-02: Build all chat UI components (ChatFab, ChatWindow, ChatHeader, MessageList, MessageBubble, TypingIndicator, StarterQuestions, ChatInput) with framer-motion animations, full SCSS styling, barrel export, and App.jsx integration
 
 ## Progress
 
@@ -75,4 +74,4 @@ Phases execute in numeric order: 1 → 2 → 3
 |-------|----------------|--------|-----------|
 | 1. Infrastructure | 2/2 | Complete | 2026-02-28 |
 | 2. Prompt Engineering | 2/2 | Complete | 2026-02-28 |
-| 3. Chat Widget | 0/3 | Not started | - |
+| 3. Chat Widget | 0/2 | Not started | - |
