@@ -15,6 +15,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Infrastructure** - Deploy secured Cloudflare Worker proxy with API key, CORS lockdown, rate limiting, and SSE streaming (Completed 2026-02-28)
 - [x] **Phase 2: Prompt Engineering** - Build and validate the system prompt that grounds the chatbot to Audruey's resume and portfolio data (Completed 2026-02-28)
 - [ ] **Phase 3: Chat Widget** - Build the full chat UI, integrate with the Worker proxy, and deploy to the live portfolio
+- [ ] **Phase 4: Fix Error Display & Retry Flow** - Wire error state to UI, fix msg.isError, make retry button functional (Gap closure)
+- [ ] **Phase 5: Fix Production Deployment Pipeline** - Inject VITE_PROXY_URL in deploy.yml for production builds (Gap closure)
+- [ ] **Phase 6: Phase 3 Verification & Cleanup** - Create Phase 3 VERIFICATION.md, fix roadmap status, remove orphaned export (Gap closure)
 
 ## Phase Details
 
@@ -62,16 +65,55 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: Build ChatContext + useReducer state layer and useChatApi hook with SSE streaming and session message cap enforcement
-- [ ] 03-02: Build all chat UI components (ChatFab, ChatWindow, ChatHeader, MessageList, MessageBubble, TypingIndicator, StarterQuestions, ChatInput) with framer-motion animations, full SCSS styling, barrel export, and App.jsx integration
+- [x] 03-01: Build ChatContext + useReducer state layer and useChatApi hook with SSE streaming and session message cap enforcement
+- [x] 03-02: Build all chat UI components (ChatFab, ChatWindow, ChatHeader, MessageList, MessageBubble, TypingIndicator, StarterQuestions, ChatInput) with framer-motion animations, full SCSS styling, barrel export, and App.jsx integration
+
+### Phase 4: Fix Error Display & Retry Flow
+**Goal**: Error messages are visible to users on network/API failure, with a working retry button — closing the only unsatisfied requirement (CHAT-08)
+**Depends on**: Phase 3
+**Requirements**: CHAT-08
+**Gap Closure**: Closes gaps from audit — CHAT-08 unsatisfied, SET_ERROR→UI integration gap, error→retry flow gap
+**Success Criteria** (what must be TRUE):
+  1. Disconnecting from the network and sending a message shows a visible error message in the chat
+  2. The error message includes a retry button that re-sends the failed message when clicked
+  3. state.error from useChatApi is consumed by a UI component (no dead code paths)
+
+Plans: TBD
+
+### Phase 5: Fix Production Deployment Pipeline
+**Goal**: The deployed production bundle uses the real Cloudflare Worker URL — not localhost:8787 — so the chatbot functions on the live site
+**Depends on**: Phase 4
+**Requirements**: INFRA-01, INFRA-04, CHAT-04, CHAT-05, CHAT-06, CHAT-08, COST-02 (unblocked by fix)
+**Gap Closure**: Closes gaps from audit — VITE_PROXY_URL→deploy.yml integration gap, production chat flow gap
+**Success Criteria** (what must be TRUE):
+  1. deploy.yml injects VITE_PROXY_URL from GitHub Actions secrets during build
+  2. The production bundle does NOT contain "localhost:8787"
+  3. Document required GitHub secret setup for VITE_PROXY_URL
+
+Plans: TBD
+
+### Phase 6: Phase 3 Verification & Cleanup
+**Goal**: All Phase 3 requirements formally verified with VERIFICATION.md, roadmap status corrected, dead code removed
+**Depends on**: Phase 5
+**Requirements**: CHAT-01, CHAT-02, CHAT-03, CHAT-04, CHAT-05, CHAT-06, CHAT-07, CHAT-09, CHAT-10, COST-01, COST-02
+**Gap Closure**: Closes gaps from audit — 11 partial requirements → satisfied via formal verification
+**Success Criteria** (what must be TRUE):
+  1. Phase 3 VERIFICATION.md exists and covers all 12 Chat Widget + Cost Control requirements
+  2. ROADMAP.md Phase 3 plan checkboxes reflect actual completion status
+  3. Orphaned SYSTEM_PROMPT export removed from chatPrompt.js
+
+Plans: TBD
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Infrastructure | 2/2 | Complete | 2026-02-28 |
 | 2. Prompt Engineering | 2/2 | Complete | 2026-02-28 |
-| 3. Chat Widget | 0/2 | Not started | - |
+| 3. Chat Widget | 2/2 | Executed (unverified) | 2026-02-28 |
+| 4. Fix Error Display & Retry | 0/0 | Not started | - |
+| 5. Fix Production Deploy | 0/0 | Not started | - |
+| 6. Phase 3 Verification & Cleanup | 0/0 | Not started | - |
