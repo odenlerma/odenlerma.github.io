@@ -78,7 +78,10 @@ Plans:
   2. The error message includes a retry button that re-sends the failed message when clicked
   3. state.error from useChatApi is consumed by a UI component (no dead code paths)
 
-Plans: TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 04-01: Wire SET_ERROR to inline error bubble, add CLEAR_ERROR_MESSAGE reducer, fix handleRetry, add error border styling
 
 ### Phase 5: Fix Production Deployment Pipeline
 **Goal**: The deployed production bundle uses the real Cloudflare Worker URL — not localhost:8787 — so the chatbot functions on the live site
