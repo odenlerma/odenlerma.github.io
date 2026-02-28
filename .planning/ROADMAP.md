@@ -25,7 +25,7 @@ Full details: `.planning/milestones/v1.0-ROADMAP.md`
 
 **Milestone Goal:** Redesign the AI chat interface to match the portfolio's light theme, remove dark mode, and elevate the chatbot from a hidden widget to the portfolio's centerpiece feature.
 
-- [ ] **Phase 7: Light Theme Redesign** - Restyle all existing chat components with the portfolio's cream/coral/blue palette, removing all dark mode SCSS
+- [x] **Phase 7: Light Theme Redesign** - Restyle all existing chat components with the portfolio's cream/coral/blue palette, removing all dark mode SCSS — completed 2026-02-28
 - [ ] **Phase 8: Chatbot Visibility & Prominence** - Add dedicated "Ask My AI" page section and elevate FAB with animation and size
 
 ## Phase Details
@@ -40,7 +40,7 @@ Full details: `.planning/milestones/v1.0-ROADMAP.md`
   3. The chat header displays coral-to-blue gradient accents matching the portfolio's hero section style
   4. The input area, border, and focus ring all use light-theme colors — no dark inputs or dark focus states
   5. Starter questions and the typing indicator render with portfolio accent colors on light backgrounds, and the floating widget maintains the light theme on all screen sizes
-**Plans**: TBD
+**Plans**: 1/1 complete (07-01 Light Theme SCSS Reskin)
 
 ### Phase 8: Chatbot Visibility & Prominence
 **Goal**: The chatbot is the highlight of the portfolio — visitors encounter a dedicated "Ask My AI" section while scrolling and can always reach the chat via a prominent, attention-drawing FAB
@@ -64,5 +64,5 @@ Full details: `.planning/milestones/v1.0-ROADMAP.md`
 | 4. Fix Error Display & Retry | v1.0 | 1/1 | Complete | 2026-02-28 |
 | 5. Fix Production Deploy | v1.0 | 1/1 | Complete | 2026-02-28 |
 | 6. Phase 3 Verification & Cleanup | v1.0 | 1/1 | Complete | 2026-02-28 |
-| 7. Light Theme Redesign | v1.1 | 0/? | Not started | - |
+| 7. Light Theme Redesign | v1.1 | 1/1 | Complete | 2026-02-28 |
 | 8. Chatbot Visibility & Prominence | v1.1 | 0/? | Not started | - |
