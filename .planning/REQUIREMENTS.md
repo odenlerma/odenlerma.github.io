@@ -9,7 +9,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Infrastructure
 
-- [ ] **INFRA-01**: Serverless API proxy (Cloudflare Worker) deployed with DeepSeek API key stored as encrypted secret
+- [x] **INFRA-01**: Serverless API proxy (Cloudflare Worker) deployed with DeepSeek API key stored as encrypted secret
 - [ ] **INFRA-02**: CORS restricted to odenlerma.github.io origin only — reject all other origins
 - [ ] **INFRA-03**: Per-IP rate limiting enforced in the Worker (30 requests/hour)
 - [ ] **INFRA-04**: Worker streams DeepSeek API response back to browser via SSE
@@ -75,7 +75,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFRA-01 | Phase 1 | Pending |
+| INFRA-01 | Phase 1 | Complete |
 | INFRA-02 | Phase 1 | Pending |
 | INFRA-03 | Phase 1 | Pending |
 | INFRA-04 | Phase 1 | Pending |
