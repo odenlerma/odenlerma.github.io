@@ -12,7 +12,7 @@ Three sequential phases deliver a secured, scoped AI chatbot embedded in Audruey
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Infrastructure** - Deploy secured Cloudflare Worker proxy with API key, CORS lockdown, rate limiting, and SSE streaming
+- [x] **Phase 1: Infrastructure** - Deploy secured Cloudflare Worker proxy with API key, CORS lockdown, rate limiting, and SSE streaming (Completed 2026-02-28)
 - [ ] **Phase 2: Prompt Engineering** - Build and validate the system prompt that grounds the chatbot to Audruey's resume and portfolio data
 - [ ] **Phase 3: Chat Widget** - Build the full chat UI, integrate with the Worker proxy, and deploy to the live portfolio
 
@@ -30,8 +30,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: TBD
 
 Plans:
-- [ ] 01-01: Scaffold Cloudflare Worker project with Wrangler, store DeepSeek API key as encrypted secret, configure local dev vars
-- [ ] 01-02: Implement CORS origin validation, per-IP rate limiting, and SSE streaming of DeepSeek response; deploy and verify
+- [x] 01-01: Scaffold Cloudflare Worker project with Wrangler, store DeepSeek API key as encrypted secret, configure local dev vars
+- [x] 01-02: Implement CORS origin validation, per-IP rate limiting, and SSE streaming of DeepSeek response; deploy and verify
 
 ### Phase 2: Prompt Engineering
 **Goal**: A tested system prompt in `src/data/chatPrompt.js` that accurately represents Audruey's full professional background, refuses out-of-scope questions gracefully, never fabricates, and is hardened against prompt injection
@@ -73,6 +73,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Infrastructure | 0/2 | Not started | - |
+| 1. Infrastructure | 2/2 | Complete | 2026-02-28 |
 | 2. Prompt Engineering | 0/2 | Not started | - |
 | 3. Chat Widget | 0/3 | Not started | - |
