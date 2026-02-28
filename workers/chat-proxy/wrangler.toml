@@ -1,0 +1,11 @@
+name = "portfolio-chat-proxy"
+main = "src/index.js"
+compatibility_date = "2024-12-01"
+
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "1001"
+
+[ratelimits.simple]
+limit = 5
+period = 10
