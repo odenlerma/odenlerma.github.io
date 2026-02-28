@@ -28,21 +28,22 @@ const MessageList = () => {
     return lastMsg.role === 'user' || (lastMsg.role === 'assistant' && lastMsg.content === '');
   })();
 
-  // Retry handler: resend the last user message
+  // Retry handler: remove error bubble and resend the last user message
   const handleRetry = () => {
-    // Find the last user message
     const lastUserMsg = [...state.messages]
       .reverse()
       .find((m) => m.role === 'user');
     if (!lastUserMsg) return;
 
-    // Clear error state
-    dispatch({ type: 'SET_ERROR', payload: null });
-
-    // Rebuild API messages up to and including the last user message
+    // Build API messages BEFORE clearing — exclude error bubbles from context
     const apiMessages = state.messages.filter(
-      (m) => m.role === 'user' || m.role === 'assistant'
+      (m) => (m.role === 'user' || m.role === 'assistant') && !m.isError
     );
+
+    // Remove error bubble from messages and clear state.error
+    dispatch({ type: 'CLEAR_ERROR_MESSAGE' });
+
+    // sendMessage creates a fresh bot message via START_BOT_MESSAGE
     sendMessage(apiMessages);
   };
 
