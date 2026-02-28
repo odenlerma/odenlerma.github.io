@@ -30,17 +30,17 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **CHAT-02**: Welcome message displayed on first open with bot introduction and purpose
 - [ ] **CHAT-03**: 3-4 suggested starter questions shown in empty state (clickable, disappear after first message)
 - [ ] **CHAT-04**: Typing/thinking indicator displayed while waiting for API response
-- [ ] **CHAT-05**: Streaming text response — tokens rendered as they arrive from the API
-- [ ] **CHAT-06**: Scrollable message history within the current session
+- [x] **CHAT-05**: Streaming text response — tokens rendered as they arrive from the API
+- [x] **CHAT-06**: Scrollable message history within the current session
 - [ ] **CHAT-07**: Input field with send button and Enter key submit support
-- [ ] **CHAT-08**: Error message displayed on network/API failure with friendly retry prompt
+- [x] **CHAT-08**: Error message displayed on network/API failure with friendly retry prompt
 - [ ] **CHAT-09**: Mobile responsive layout — chat window adapts to mobile viewport without covering critical content
 - [ ] **CHAT-10**: Widget styled to match portfolio design system (colors, fonts, glassmorphism)
 
 ### Cost Control
 
-- [ ] **COST-01**: Per-session message cap (15-20 messages) enforced client-side with graceful limit message
-- [ ] **COST-02**: DeepSeek `deepseek-chat` (V3) model used — not the expensive reasoning model (R1)
+- [x] **COST-01**: Per-session message cap (15-20 messages) enforced client-side with graceful limit message
+- [x] **COST-02**: DeepSeek `deepseek-chat` (V3) model used — not the expensive reasoning model (R1)
 
 ## v2 Requirements
 
@@ -90,14 +90,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CHAT-02 | Phase 3 | Pending |
 | CHAT-03 | Phase 3 | Pending |
 | CHAT-04 | Phase 3 | Pending |
-| CHAT-05 | Phase 3 | Pending |
-| CHAT-06 | Phase 3 | Pending |
+| CHAT-05 | Phase 3 | Complete |
+| CHAT-06 | Phase 3 | Complete |
 | CHAT-07 | Phase 3 | Pending |
-| CHAT-08 | Phase 3 | Pending |
+| CHAT-08 | Phase 3 | Complete |
 | CHAT-09 | Phase 3 | Pending |
 | CHAT-10 | Phase 3 | Pending |
-| COST-01 | Phase 3 | Pending |
-| COST-02 | Phase 3 | Pending |
+| COST-01 | Phase 3 | Complete |
+| COST-02 | Phase 3 | Complete |
 
 **Coverage:**
 - v1 requirements: 23 total
