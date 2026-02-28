@@ -26,16 +26,16 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Chat Widget UI
 
-- [ ] **CHAT-01**: Floating chat widget anchored to bottom-right of viewport with open/close toggle
-- [ ] **CHAT-02**: Welcome message displayed on first open with bot introduction and purpose
-- [ ] **CHAT-03**: 3-4 suggested starter questions shown in empty state (clickable, disappear after first message)
-- [ ] **CHAT-04**: Typing/thinking indicator displayed while waiting for API response
+- [x] **CHAT-01**: Floating chat widget anchored to bottom-right of viewport with open/close toggle
+- [x] **CHAT-02**: Welcome message displayed on first open with bot introduction and purpose
+- [x] **CHAT-03**: 3-4 suggested starter questions shown in empty state (clickable, disappear after first message)
+- [x] **CHAT-04**: Typing/thinking indicator displayed while waiting for API response
 - [x] **CHAT-05**: Streaming text response — tokens rendered as they arrive from the API
 - [x] **CHAT-06**: Scrollable message history within the current session
-- [ ] **CHAT-07**: Input field with send button and Enter key submit support
+- [x] **CHAT-07**: Input field with send button and Enter key submit support
 - [x] **CHAT-08**: Error message displayed on network/API failure with friendly retry prompt
-- [ ] **CHAT-09**: Mobile responsive layout — chat window adapts to mobile viewport without covering critical content
-- [ ] **CHAT-10**: Widget styled to match portfolio design system (colors, fonts, glassmorphism)
+- [x] **CHAT-09**: Mobile responsive layout — chat window adapts to mobile viewport without covering critical content
+- [x] **CHAT-10**: Widget styled to match portfolio design system (colors, fonts, glassmorphism)
 
 ### Cost Control
 
@@ -86,16 +86,16 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PRMT-05 | Phase 2 | Complete |
 | PRMT-06 | Phase 2 | Complete |
 | PRMT-07 | Phase 2 | Complete |
-| CHAT-01 | Phase 3 | Pending |
-| CHAT-02 | Phase 3 | Pending |
-| CHAT-03 | Phase 3 | Pending |
-| CHAT-04 | Phase 3 | Pending |
+| CHAT-01 | Phase 3 | Complete |
+| CHAT-02 | Phase 3 | Complete |
+| CHAT-03 | Phase 3 | Complete |
+| CHAT-04 | Phase 3 | Complete |
 | CHAT-05 | Phase 3 | Complete |
 | CHAT-06 | Phase 3 | Complete |
-| CHAT-07 | Phase 3 | Pending |
+| CHAT-07 | Phase 3 | Complete |
 | CHAT-08 | Phase 3 | Complete |
-| CHAT-09 | Phase 3 | Pending |
-| CHAT-10 | Phase 3 | Pending |
+| CHAT-09 | Phase 3 | Complete |
+| CHAT-10 | Phase 3 | Complete |
 | COST-01 | Phase 3 | Complete |
 | COST-02 | Phase 3 | Complete |
 
