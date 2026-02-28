@@ -38,7 +38,15 @@ Visitors can instantly get accurate, personalized answers about Audruey's qualif
 
 ### Active
 
-(None — define with `/gsd:new-milestone`)
+## Current Milestone: v1.1 Chat Interface Redesign
+
+**Goal:** Redesign the AI chat interface to match the portfolio's light theme, remove dark mode, and elevate the chatbot from a hidden widget to the portfolio's centerpiece feature.
+
+**Target features:**
+- Light theme redesign matching website design system (cream/coral/blue palette)
+- Remove all dark mode styling from chat components
+- Increase chatbot visibility and prominence — make it the highlight of the portfolio
+- Maintain all existing chat functionality (streaming, starter questions, error handling)
 
 ### Out of Scope
 
@@ -95,4 +103,4 @@ Visitors can instantly get accurate, personalized answers about Audruey's qualif
 | Step-level env in GitHub Actions | Limits secret scope vs job-level env | ✓ Good — least privilege |
 
 ---
-*Last updated: 2026-02-28 after v1.0 milestone*
+*Last updated: 2026-02-28 after v1.1 milestone started*
