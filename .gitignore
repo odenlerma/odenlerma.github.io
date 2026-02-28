@@ -25,3 +25,8 @@ dist-ssr
 .playwright-mcp
 .vscode
 dist
+.env
+
+# Worker local dev
+.dev.vars
+workers/chat-proxy/node_modules
