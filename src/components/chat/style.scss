@@ -163,23 +163,30 @@
 
   &--bot {
     align-self: flex-start;
-    background: lighten($dark, 8%);
-    color: rgba($light, 0.9);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: $dark;
     border-bottom-left-radius: 4px;
   }
 
   &--error {
     align-self: flex-start;
-    background: lighten($dark, 8%);
-    color: rgba($light, 0.9);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: $dark;
     border: 1px solid rgba($primary, 0.3);
     border-bottom-left-radius: 4px;
   }
 
   &--limit {
     align-self: flex-start;
-    background: lighten($dark, 8%);
-    color: rgba($light, 0.9);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: $dark;
     border: 1px solid rgba($secondary, 0.3);
     border-bottom-left-radius: 4px;
   }
@@ -208,7 +215,10 @@
   display: flex;
   gap: 4px;
   padding: $space-xs $space-sm;
-  background: lighten($dark, 8%);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: $radius-md;
   border-bottom-left-radius: 4px;
 
@@ -216,7 +226,15 @@
     width: 8px;
     height: 8px;
     border-radius: $radius-full;
-    background: rgba($light, 0.4);
+    background: $primary;
+
+    &:nth-child(2) {
+      background: mix($primary, $secondary, 50%);
+    }
+
+    &:nth-child(3) {
+      background: $secondary;
+    }
   }
 }
 
