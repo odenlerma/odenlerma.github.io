@@ -139,7 +139,7 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba($dark, 0.15);
     border-radius: $radius-full;
   }
 }
@@ -249,17 +249,17 @@
 .chat-starter {
   padding: 6px 14px;
   border-radius: $radius-full;
-  background: rgba($secondary, 0.15);
-  color: rgba($light, 0.85);
-  border: 1px solid rgba($secondary, 0.25);
+  background: rgba($secondary, 0.08);
+  color: $secondary;
+  border: 1px solid rgba($secondary, 0.2);
   font-size: 0.8rem;
   font-family: $font-body;
   cursor: pointer;
   transition: background $transition-fast, border-color $transition-fast;
 
   &:hover {
-    background: rgba($secondary, 0.25);
-    border-color: rgba($secondary, 0.4);
+    background: rgba($secondary, 0.15);
+    border-color: rgba($secondary, 0.3);
   }
 }
 
@@ -269,16 +269,16 @@
   align-items: center;
   gap: $space-xs;
   padding: $space-xs $space-sm;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background: lighten($dark, 3%);
+  border-top: 1px solid rgba($dark, 0.08);
+  background: rgba(255, 245, 227, 0.92);
 }
 
 .chat-input {
   flex: 1;
-  background: lighten($dark, 8%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba($dark, 0.1);
   border-radius: $radius-md;
-  color: $light;
+  color: $dark;
   padding: 8px 12px;
   font-size: 0.9rem;
   font-family: $font-body;
@@ -287,11 +287,11 @@
   transition: border-color $transition-fast;
 
   &::placeholder {
-    color: rgba($light, 0.35);
+    color: rgba($dark, 0.35);
   }
 
   &:focus {
-    border-color: rgba($secondary, 0.4);
+    border-color: $secondary;
   }
 
   &:disabled {
