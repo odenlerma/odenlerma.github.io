@@ -30,3 +30,4 @@ dist
 # Worker local dev
 .dev.vars
 workers/chat-proxy/node_modules
+.wrangler
