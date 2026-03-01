@@ -31,3 +31,4 @@ dist
 .dev.vars
 workers/chat-proxy/node_modules
 .wrangler
+.planning
