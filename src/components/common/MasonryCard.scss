@@ -4,16 +4,6 @@
 // Masonry Card Component - Pinterest Style
 // ============================================
 
-// Animated gradient border keyframes
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
 @keyframes featuredBadgePulse {
   0%, 100% {
     transform: scale(1);
@@ -82,15 +72,7 @@
       inset: -3px;
       padding: 3px;
       border-radius: calc($radius-xl + 3px);
-      background: linear-gradient(
-        135deg,
-        $primary,
-        $secondary,
-        $primary,
-        $secondary
-      );
-      background-size: 300% 300%;
-      animation: gradientShift 4s ease-in-out infinite;
+      background: $primary;
       -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
@@ -209,11 +191,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(
-    135deg,
-    rgba($primary, 0.08),
-    rgba($secondary, 0.08)
-  );
+  background: rgba($primary, 0.08);
 }
 
 .masonry-card__image {
@@ -227,11 +205,7 @@
 .masonry-card__image-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba($primary, 0.8),
-    rgba($secondary, 0.8)
-  );
+  background: rgba($primary, 0.8);
   opacity: 0;
   transition: opacity $transition-base;
   pointer-events: none;
@@ -278,7 +252,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: white;
-  background: linear-gradient(135deg, $primary, $secondary);
+  background: $primary;
   padding: 0.2rem 0.5rem;
   border-radius: $radius-sm;
   animation: featuredBadgePulse 2s ease-in-out infinite;

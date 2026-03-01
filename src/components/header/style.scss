@@ -18,14 +18,7 @@ $nav-colors: (
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(
-    90deg,
-    #FC5130 0%,
-    #FF9635 25%,
-    #53CB48 50%,
-    #4C66FF 75%,
-    #9B59B6 100%
-  );
+  background: $primary;
   transform-origin: left;
   z-index: 1001;
 }
@@ -385,15 +378,7 @@ $nav-colors: (
     left: 0;
     right: 0;
     height: 6px;
-    background: linear-gradient(
-      90deg,
-      $primary 0%,
-      $primary 33%,
-      $secondary 33%,
-      $secondary 66%,
-      $success 66%,
-      $success 100%
-    );
+    background: $primary;
   }
 }
 

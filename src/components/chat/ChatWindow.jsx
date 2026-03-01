@@ -47,7 +47,7 @@ const ChatWindow = () => {
         payload: {
           id: 'welcome',
           content:
-            "Hi! I'm Audy, Audruey's AI assistant. Ask me anything about her experience, skills, or projects.",
+            "Hi! I'm Audy, I was created by Audruey to help you learn about her experience, skills, and projects. What would you like to know?",
           isLimit: false,
         },
       });

@@ -44,10 +44,7 @@
   margin: 0;
 
   &--accent {
-    background: linear-gradient(135deg, $primary, $secondary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: $primary;
   }
 }
 
@@ -65,7 +62,7 @@
   gap: $space-sm;
   padding: $space-md $space-xl;
   background: $primary;
-  color: white;
+  color: white !important;
   border-radius: $radius-full;
   font-family: $font-display;
   font-size: 1.125rem;
@@ -76,7 +73,7 @@
 
   &:hover {
     background: darken($primary, 8%);
-    color: white;
+    color: white !important;
     box-shadow: 0 8px 24px rgba($primary, 0.4);
 
     i {

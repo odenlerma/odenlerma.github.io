@@ -50,7 +50,7 @@
   margin: 0 auto $space-md;
   border-radius: 50%;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba($primary, 0.1), rgba($secondary, 0.1));
+  background: rgba($primary, 0.1);
   border: 3px solid $primary;
 }
 
@@ -147,7 +147,7 @@
   gap: $space-sm;
   padding: $space-md $space-lg;
   background: $secondary;
-  color: white;
+  color: white !important;
   border: none;
   border-radius: $radius-full;
   font-family: $font-display;

@@ -85,7 +85,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba($primary, 0.1), rgba($secondary, 0.1));
+  background: rgba($primary, 0.1);
 }
 
 .project-card__image {
@@ -98,7 +98,7 @@
 .project-card__image-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, $primary, $secondary);
+  background: $primary;
   opacity: 0;
   transition: opacity $transition-base;
 }
@@ -270,5 +270,5 @@
 .year-marker__line {
   flex: 1;
   height: 2px;
-  background: linear-gradient(90deg, $primary, transparent);
+  background: $primary;
 }

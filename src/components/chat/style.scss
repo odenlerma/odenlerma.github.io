@@ -8,19 +8,64 @@
   50% {
     box-shadow: 0 4px 20px rgba($primary, 0.5),
                 0 0 30px rgba($primary, 0.3),
-                0 0 60px rgba($secondary, 0.15);
+                0 0 60px rgba($primary, 0.15);
+  }
+}
+
+// ─── FAB Orbit Keyframes ─────────────────────────────────────────────
+@keyframes fab-orbit {
+  from { transform: rotate(0deg) translateX(46px); }
+  to   { transform: rotate(360deg) translateX(46px); }
+}
+
+@keyframes fab-orbit-mobile {
+  from { transform: rotate(0deg) translateX(38px); }
+  to   { transform: rotate(360deg) translateX(38px); }
+}
+
+// ─── FAB Wrapper (holds label + button) ──────────────────────────────
+.chat-fab-wrapper {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1050;
+
+  @media (max-width: 768px) {
+    bottom: 80px;
+    right: 16px;
+    gap: 8px;
+  }
+}
+
+// ─── FAB CTA Label ──────────────────────────────────────────────────
+.chat-fab-label {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: white;
+  background: $primary;
+  padding: 8px 16px;
+  border-radius: $radius-full;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba($primary, 0.3);
+  user-select: none;
+
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+    padding: 6px 12px;
   }
 }
 
 // ─── FAB (Floating Action Button) ────────────────────────────────────
 .chat-fab {
-  position: fixed;
-  bottom: 100px;
-  right: 24px;
   width: 68px;
   height: 68px;
   border-radius: $radius-full;
-  background: linear-gradient(135deg, $primary, $secondary);
+  background: $primary;
   border: none;
   color: white;
   font-size: 1.75rem;
@@ -29,7 +74,7 @@
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 4px 20px rgba($primary, 0.4);
-  z-index: 1050;
+  flex-shrink: 0;
   @include hover-lift(-4px);
 
   &--glow {
@@ -37,11 +82,65 @@
   }
 
   @media (max-width: 768px) {
-    bottom: 80px;
-    right: 16px;
     width: 56px;
     height: 56px;
     font-size: 1.4rem;
+  }
+}
+
+// ─── Orbiting Dots (centered on FAB) ─────────────────────────────────
+.chat-fab-orbit {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  &__dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    margin: -3px;
+    border-radius: 50%;
+    animation: fab-orbit 4s linear infinite;
+
+    &--coral {
+      background: $primary;
+      box-shadow: 0 0 8px rgba($primary, 0.6);
+    }
+
+    &--blue {
+      background: $secondary;
+      box-shadow: 0 0 8px rgba($secondary, 0.6);
+      animation-delay: -2s;
+    }
+
+    &--green {
+      background: #1B9E1B;
+      box-shadow: 0 0 8px rgba(#1B9E1B, 0.6);
+      animation-duration: 6s;
+      animation-delay: -1s;
+    }
+
+    &--yellow {
+      background: #D4A800;
+      box-shadow: 0 0 8px rgba(#D4A800, 0.6);
+      animation-delay: -3s;
+    }
+
+    &--purple {
+      background: #7B1FA2;
+      box-shadow: 0 0 8px rgba(#7B1FA2, 0.6);
+      animation-duration: 5s;
+      animation-delay: -2.5s;
+    }
+
+    @media (max-width: 768px) {
+      width: 5px;
+      height: 5px;
+      margin: -2.5px;
+      animation-name: fab-orbit-mobile;
+    }
   }
 }
 
@@ -92,7 +191,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, $primary, $secondary);
+    background: $primary;
   }
 
   &__info {
@@ -105,7 +204,7 @@
     width: 32px;
     height: 32px;
     border-radius: $radius-full;
-    background: linear-gradient(135deg, $primary, $secondary);
+    background: $primary;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -319,7 +418,7 @@
   width: 36px;
   height: 36px;
   border-radius: $radius-full;
-  background: linear-gradient(135deg, $primary, $secondary);
+  background: $primary;
   border: none;
   color: white;
   font-size: 0.9rem;
@@ -340,42 +439,3 @@
   }
 }
 
-// ─── Ask My AI Section ────────────────────────────────────────────────
-.ask-ai-section {
-  @include section-padding;
-  background: transparent;
-}
-
-.ask-ai__headline {
-  @include display-text;
-  @include gradient-text;
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  margin-bottom: $space-sm;
-}
-
-.ask-ai__description {
-  font-family: $font-body;
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
-  color: rgba($dark, 0.65);
-  margin-bottom: $space-xl;
-  max-width: 540px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-// ─── Inline Chat (non-floating variant) ───────────────────────────────
-.inline-chat {
-  @include glassmorphism(20px, rgba(255, 245, 227, 0.85));
-  border-radius: $radius-lg;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 8px 40px rgba(48, 48, 54, 0.12);
-  font-family: $font-body;
-  color: $dark;
-  height: 520px;
-
-  @media (max-width: 768px) {
-    height: 420px;
-  }
-}

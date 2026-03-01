@@ -45,7 +45,7 @@ export const CUSTOM_FOOTER = () => {
             <span className="cta-label font-mono">Ready to collaborate?</span>
           </FadeInView>
           <AnimatedText
-            text="Let's Create Something"
+            text="Let's Create Something "
             as="h2"
             className="cta-title"
             delay={0.2}

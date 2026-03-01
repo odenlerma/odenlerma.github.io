@@ -99,12 +99,9 @@ $utilities: map-merge(
   border: 1px solid $glass-border;
 }
 
-// Gradient text
-@mixin gradient-text($from: $primary, $to: $secondary) {
-  background: linear-gradient(135deg, $from, $to);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+// Solid accent text
+@mixin gradient-text($color: $primary) {
+  color: $color;
 }
 
 // Card with gradient border
@@ -119,7 +116,7 @@ $utilities: map-merge(
     inset: 0;
     padding: $width;
     border-radius: inherit;
-    background: linear-gradient(135deg, $primary, $secondary);
+    background: $primary;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
