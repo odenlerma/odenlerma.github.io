@@ -158,22 +158,22 @@ export default {
       });
     }
 
-    // 4. Rate limiting — two tiers
-    const clientIP = request.headers.get('CF-Connecting-IP') || '127.0.0.1';
-
-    // Tier 1: Burst limiter (Workers Rate Limiting binding — 5 req/10s)
-    const { success: burstOk } = await env.RATE_LIMITER.limit({ key: clientIP });
-    if (!burstOk) {
-      return rateLimitResponse(origin);
-    }
-
-    // Tier 2: Hourly limiter (in-memory — 30 req/hour)
-    if (!checkHourlyLimit(clientIP)) {
-      return rateLimitResponse(origin);
-    }
-
-    // 5. Proxy to DeepSeek
     try {
+      // 4. Rate limiting — two tiers
+      const clientIP = request.headers.get('CF-Connecting-IP') || '127.0.0.1';
+
+      // Tier 1: Burst limiter (Workers Rate Limiting binding — 5 req/10s)
+      const { success: burstOk } = await env.RATE_LIMITER.limit({ key: clientIP });
+      if (!burstOk) {
+        return rateLimitResponse(origin);
+      }
+
+      // Tier 2: Hourly limiter (in-memory — 30 req/hour)
+      if (!checkHourlyLimit(clientIP)) {
+        return rateLimitResponse(origin);
+      }
+
+      // 5. Proxy to DeepSeek
       return await proxyToDeepSeek(request, env, origin);
     } catch (err) {
       return new Response(
